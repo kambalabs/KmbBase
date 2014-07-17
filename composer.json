@@ -1,0 +1,37 @@
+{
+    "name": "kambalabs/kmb-base",
+    "description": "Kamba base core module",
+    "keywords": [
+        "kamba",
+        "module"
+    ],
+    "homepage": "http://github.com/kambalabs/KmbBase",
+    "license": "GPL V2",
+    "authors": [
+        {
+            "name": "Emmanuel Bouton",
+            "email": "goten4@gmail.com",
+            "homepage": "http://github.com/goten4",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zendframework": "2.3.*",
+        "goten4/gtn-datatables": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/PHPUnit": "3.7.*",
+        "zendframework/zend-developer-tools": "dev-master",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "KmbBase": "src/"
+        },
+        "classmap": [
+            "test/KmbBaseTest/AbstractBootstrap.php",
+            "test/KmbBaseTest/View"
+        ]
+    }
+}

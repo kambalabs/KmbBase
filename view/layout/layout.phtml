@@ -1,0 +1,98 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('Kamba')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/kamba.css')
+                        ->prependStylesheet($this->basePath() . '/css/chosen.css')
+                        ->prependStylesheet($this->basePath() . '/css/chosen-bootstrap.css')
+                        ->prependStylesheet($this->basePath() . '/css/jquery.gritter.css')
+                        ->prependStylesheet($this->basePath() . '/css/DT_bootstrap.css')
+                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+
+        <?php echo $this->headScript()
+                ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+        ; ?>
+
+    </head>
+    <body>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".header-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <p class="logo navbar-brand">Kamba <span class="version">/ 0.1.0</span></p>
+                </div>
+                <div class="collapse navbar-collapse header-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="<?php echo $this->url('dashboard') ?>"><?php echo $this->translate('Dashboard') ?></a></li>
+                        <li><a href="<?php echo $this->url('servers') ?>"><?php echo $this->translate('Servers') ?></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Puppet') ?> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="" data-toggle="tab"><?php echo $this->translate('Modules') ?></a></li>
+                                <li><a href="" data-toggle="tab"><?php echo $this->translate('Groups') ?></a></li>
+                                <li><a href="" data-toggle="tab"><?php echo $this->translate('Classes') ?></a></li>
+                                <li><a href="<?php echo $this->url('puppet/default', array('controller' => 'reports')) ?>"><?php echo $this->translate('Day reports') ?></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php if ($user = $this->identity()): ?>
+                    <ul class="nav navbar-nav pull-right">
+                        <li><form class="form-inline" role="form" id="environment-form">
+                                <div class="form-group">
+                                    <select id="environment" data-placeholder="<?php echo $this->translate('Environment') ?>" class="form-control" name="environment" data-rel="chosen">
+                                        <option value="default">default</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                                <?php echo $user->getName() ?>
+                                <strong class="caret"></strong>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="glyphicon glyphicon-user"></i> <?php echo $user->getLogin() ?></a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-off"></i> <?php echo $this->translate('Logout') ?></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
+        <div class="container tab-content">
+<?php echo $this->content; ?>
+        </div> <!-- /container -->
+        <!-- Scripts -->
+        <?php echo $this->inlineScript()
+            ->prependFile($this->basePath() . '/js/kamba.cache.js')
+            ->prependFile($this->basePath() . '/js/kamba.js')
+            ->prependFile($this->basePath() . '/js/jquery.flot.stack.js')
+            ->prependFile($this->basePath() . '/js/jquery.flot.js')
+            ->prependFile($this->basePath() . '/js/jquery.chosen.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.validate.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.gritter.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.knob.js')
+            ->prependFile($this->basePath() . '/js/dataTables.bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.dataTables.min.js')
+            ->prependFile($this->basePath() . '/js/jquery.jeditable.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery-2.1.0.min.js')
+        ; ?>
+    </body>
+</html>
