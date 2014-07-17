@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-11 15:25+0100\n"
-"PO-Revision-Date: 2014-07-11 15:25+0100\n"
+"POT-Creation-Date: 2014-07-17 22:59+0100\n"
+"PO-Revision-Date: 2014-07-17 23:00+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: \n"
@@ -118,9 +118,13 @@ msgstr "Classes"
 msgid "Day reports"
 msgstr "Rapports du jour"
 
-#: ../view/layout/layout.phtml:56
+#: ../view/layout/layout.phtml:57
 msgid "Environment"
 msgstr "Environnement"
+
+#: ../view/layout/layout.phtml:70
+msgid "Logout"
+msgstr "Se déconnecter"
 
 #~ msgid "Day Puppet statistics"
 #~ msgstr "Statistiques Puppet du jour"
