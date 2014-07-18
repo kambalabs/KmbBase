@@ -28,5 +28,12 @@ return [
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
-    ]
+    ],
+    'asset_manager' => [
+        'resolver_configs' => [
+            'paths' => [
+                __DIR__ . '/../public',
+            ],
+        ],
+    ],
 ];
