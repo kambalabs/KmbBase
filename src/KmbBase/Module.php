@@ -22,9 +22,18 @@ namespace KmbBase;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\Mvc\MvcEvent;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
+    public function onBootstrap(MvcEvent $e)
+    {
+        $config = $e->getApplication()->getServiceManager()->get('Config');
+        if (isset($config['translator']['locale'])) {
+            \Locale::setDefault($config['translator']['locale']);
+        }
+    }
+
     public function getConfig()
     {
         return include dirname(dirname(__DIR__)) . '/config/module.config.php';
