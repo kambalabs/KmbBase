@@ -1,4 +1,18 @@
 $(document).ready(function () {
+
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span');
+    $('.tree li.parent_li > span > i').on('click', function (e) {
+        var children = $(this).closest('li.parent_li').find(' > ul > li');
+        if (children.is(":visible")) {
+            children.hide('fast');
+            $(this).addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+        } else {
+            children.show('fast');
+            $(this).addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
+        }
+        e.stopPropagation();
+    });
+
     var dataTablesDefaultSettings = {
         "sPaginationType": "bootstrap",
         "bProcessing": true,

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-17 22:59+0100\n"
-"PO-Revision-Date: 2014-07-17 23:00+0100\n"
+"POT-Creation-Date: 2014-07-21 16:25+0100\n"
+"PO-Revision-Date: 2014-07-21 16:25+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: \n"
@@ -103,28 +103,36 @@ msgid "Puppet"
 msgstr "Puppet"
 
 #: ../view/layout/layout.phtml:46
+msgid "Environments"
+msgstr "Environnements"
+
+#: ../view/layout/layout.phtml:47
 msgid "Modules"
 msgstr "Modules"
 
-#: ../view/layout/layout.phtml:47
+#: ../view/layout/layout.phtml:48
 msgid "Groups"
 msgstr "Groupes"
 
-#: ../view/layout/layout.phtml:48
+#: ../view/layout/layout.phtml:49
 msgid "Classes"
 msgstr "Classes"
 
-#: ../view/layout/layout.phtml:49
+#: ../view/layout/layout.phtml:50
 msgid "Day reports"
 msgstr "Rapports du jour"
 
-#: ../view/layout/layout.phtml:57
+#: ../view/layout/layout.phtml:58
 msgid "Environment"
 msgstr "Environnement"
 
-#: ../view/layout/layout.phtml:70
+#: ../view/layout/layout.phtml:71
 msgid "Logout"
 msgstr "Se déconnecter"
+
+#, fuzzy
+#~ msgid "Environnements"
+#~ msgstr "Environnement"
 
 #~ msgid "Day Puppet statistics"
 #~ msgstr "Statistiques Puppet du jour"
