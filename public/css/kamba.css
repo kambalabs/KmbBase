@@ -6,6 +6,18 @@ button, input, optgroup, select, textarea {
     font-weight: normal;
 }
 
+.icon-red {
+    color: #d43f3a;
+}
+
+.icon-grey {
+    color: #333;
+}
+
+.icon-blue {
+    color: #428bca;
+}
+
 .tree {
     min-height: 20px;
 }
