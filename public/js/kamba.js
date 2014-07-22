@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    $('.modal.confirm').on('show.bs.modal', function(e) {
+        $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+        $('.confirm-param1').html($(e.relatedTarget).attr('data-confirm-param1'));
+        $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
+    });
+
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
     $('.tree li.parent_li > span > i').on('click', function (e) {
         var children = $(this).closest('li.parent_li').find(' > ul > li');
