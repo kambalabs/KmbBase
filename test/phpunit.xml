@@ -19,6 +19,8 @@
             <directory suffix=".php">../src</directory>
             <exclude>
                 <file>../src/KmbBase/Module.php</file>
+                <file>../src/KmbBase/Controller/Plugin/Translate.php</file>
+                <file>../src/KmbBase/Controller/Plugin/TranslateFactory.php</file>
             </exclude>
         </whitelist>
     </filter>
