@@ -3,7 +3,8 @@ $(document).ready(function() {
     function notifyForCacheRefresh() {
         $.gritter.add({
             title: "Mise à jour des données",
-            text: "Les données de l'inventaire PuppetDB ont été mises à jour."
+            text: "Les données de l'inventaire PuppetDB ont été mises à jour.",
+            class_name: "gritter-light"
         });
     }
 

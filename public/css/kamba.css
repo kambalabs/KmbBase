@@ -18,6 +18,11 @@ button, input, optgroup, select, textarea {
     color: #428bca;
 }
 
+ul.flash  {
+    padding: 0;
+    list-style-type: none;
+}
+
 .tree {
     min-height: 20px;
 }

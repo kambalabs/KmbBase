@@ -14,6 +14,11 @@ return [
             ],
         ],
     ],
+    'controller_plugins' => [
+        'factories' => [
+            'translate' => 'KmbBase\Controller\Plugin\TranslateFactory',
+        ],
+    ],
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
@@ -27,6 +32,13 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'view_helper_config' => [
+        'flashmessenger' => [
+            'message_open_format'      => '<ul class="flash"><li%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>',
+            'message_close_string'     => '</li></ul>',
+            'message_separator_string' => '</li><li%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
         ],
     ],
     'asset_manager' => [

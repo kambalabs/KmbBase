@@ -6,6 +6,21 @@ $(document).ready(function () {
         $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
     });
 
+    $('#update-environment').on('show.bs.modal', function(e) {
+        $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
+        $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
+        var parentSelect = $('#update-parent-select');
+        parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
+        parentSelect.trigger('chosen:updated');
+    });
+
+    $('#create-environment').on('show.bs.modal', function(e) {
+        var parentSelect = $('#create-parent-select');
+        parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
+        parentSelect.trigger('chosen:updated');
+    });
+
+
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
     $('.tree li.parent_li > span > i').on('click', function (e) {
         var children = $(this).closest('li.parent_li').find(' > ul > li');
