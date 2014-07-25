@@ -116,4 +116,5 @@ $(document).ready(function () {
         search_contains: true
     });
     $('.chosen-container').width('100%');
+    $('.chosen-drop').css({minWidth: '100%', width: 'auto'});
 });

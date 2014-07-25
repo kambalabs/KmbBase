@@ -36,6 +36,7 @@
         },
         "classmap": [
             "test/KmbBaseTest/AbstractBootstrap.php",
+            "test/KmbBaseTest/Controller",
             "test/KmbBaseTest/View"
         ]
     }
