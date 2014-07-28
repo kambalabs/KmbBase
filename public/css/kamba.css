@@ -23,6 +23,10 @@ ul.flash  {
     list-style-type: none;
 }
 
+.tab-pane > blockquote {
+    margin-top: 16px;
+}
+
 .tree {
     min-height: 20px;
 }
@@ -319,6 +323,10 @@ select.form-control + .chosen-container-multi .chosen-choices {
 select.form-control + .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
     height:auto;
     padding:5px 0;
+}
+
+li.search-field input.default {
+    width: auto !important;
 }
 
 select.form-control + .chosen-container-multi .chosen-choices li.search-choice {

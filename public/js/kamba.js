@@ -1,26 +1,5 @@
 $(document).ready(function () {
 
-    $('.modal.confirm').on('show.bs.modal', function(e) {
-        $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
-        $('.confirm-param1').html($(e.relatedTarget).attr('data-confirm-param1'));
-        $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
-    });
-
-    $('#update-environment').on('show.bs.modal', function(e) {
-        $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
-        $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
-        var parentSelect = $('#update-parent-select');
-        parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
-        parentSelect.trigger('chosen:updated');
-    });
-
-    $('#create-environment').on('show.bs.modal', function(e) {
-        var parentSelect = $('#create-parent-select');
-        parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
-        parentSelect.trigger('chosen:updated');
-    });
-
-
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
     $('.tree li.parent_li > span > i').on('click', function (e) {
         var children = $(this).closest('li.parent_li').find(' > ul > li');
@@ -117,4 +96,45 @@ $(document).ready(function () {
     });
     $('.chosen-container').width('100%');
     $('.chosen-drop').css({minWidth: '100%', width: 'auto'});
+
+    $('.modal.confirm').on('show.bs.modal', function(e) {
+        $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
+        $('.confirm-param1').html($(e.relatedTarget).attr('data-confirm-param1'));
+        $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
+    });
+
+    var environmentUsers = $('#update-environment-users').DataTable($.extend({}, dataTablesDefaultSettings, {
+        "ajax": '/puppet/environments/1/users',
+        "lengthChange": false,
+        "displayLength": 5
+    }));
+
+    $('#update-environment').on('show.bs.modal', function(e) {
+        $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
+        $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
+        var parentSelect = $('#update-parent-select');
+        parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
+        parentSelect.trigger('chosen:updated');
+
+        var id = $(e.relatedTarget).attr('data-id');
+        environmentUsers.ajax.url('/puppet/environments/' + id + '/users').load();
+//        $environmentUsers.fnDraw();
+
+        $.ajax({
+            url: "/puppet/environments/" + id + "/available-users",
+            dataType: "json"
+        }).done(function(data) {
+            $('#update-environment-user-select').html('');
+            $(data.users).each(function(){
+                $('#update-environment-user-select').append('<option value="' + this.id + '">' + this.name + ' - ' + this.login + '</option>');
+            });
+            $("#update-environment-user-select").trigger("chosen:updated");
+        });
+    });
+
+    $('#create-environment').on('show.bs.modal', function(e) {
+        var parentSelect = $('#create-parent-select');
+        parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
+        parentSelect.trigger('chosen:updated');
+    });
 });
