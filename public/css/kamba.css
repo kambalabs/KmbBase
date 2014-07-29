@@ -6,6 +6,10 @@ button, input, optgroup, select, textarea {
     font-weight: normal;
 }
 
+.lightgrey {
+    color: #999;
+}
+
 .icon-red {
     color: #d43f3a;
 }
@@ -16,6 +20,10 @@ button, input, optgroup, select, textarea {
 
 .icon-blue {
     color: #428bca;
+}
+
+.modal-backdrop.fade.in {
+    opacity: 0;
 }
 
 ul.flash  {
@@ -76,6 +84,7 @@ ul.flash  {
     border-radius:5px;
     display:inline-block;
     padding:3px 8px;
+    vertical-align: middle;
     text-decoration:none
 }
 

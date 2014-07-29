@@ -109,9 +109,11 @@ $(document).ready(function () {
         "displayLength": 5
     }));
 
-    $('#update-environment').on('show.bs.modal', function(e) {
+    var updateEnvironment = $('#update-environment');
+    updateEnvironment.on('show.bs.modal', function(e) {
         $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
         $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
+        $('#current-environment-name').html($(e.relatedTarget).attr('data-full-name'));
         var parentSelect = $('#update-parent-select');
         parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
         parentSelect.trigger('chosen:updated');
@@ -130,6 +132,15 @@ $(document).ready(function () {
             });
             $("#update-environment-user-select").trigger("chosen:updated");
         });
+    });
+
+    updateEnvironment.on('click', '.remove-user', function() {
+        $.ajax({
+            url: "/puppet/environments/" + $(this).attr('data-environment-id') + "/users/" + $(this).attr('data-user-id') + "/remove"
+        }).done(function() {
+            environmentUsers.ajax.reload();
+        });
+        return false;
     });
 
     $('#create-environment').on('show.bs.modal', function(e) {
