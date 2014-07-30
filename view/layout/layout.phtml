@@ -38,7 +38,12 @@
                 </div>
                 <?php if ($user = $this->identity()): ?>
                     <ul class="nav navbar-nav pull-right">
-                        <?php echo $this->placeholder('header-addon') ?>
+                        <li><form class="form-inline" role="form" id="environment-form">
+                                <div class="form-group">
+                                    <?php echo $this->environmentSelect('current-environment', 'currentEnvironment', $this->translate('All'), 'readEnv') ?>
+                                </div>
+                            </form>
+                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
                                 <?php echo $user->getName() ?>
