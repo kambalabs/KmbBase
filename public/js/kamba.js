@@ -104,7 +104,6 @@ $(document).ready(function () {
     });
 
     var environmentUsers = $('#update-environment-users').DataTable($.extend({}, dataTablesDefaultSettings, {
-        "ajax": '/puppet/environments/1/users',
         "lengthChange": false,
         "displayLength": 5
     }));
@@ -120,7 +119,6 @@ $(document).ready(function () {
 
         var id = $(e.relatedTarget).attr('data-id');
         environmentUsers.ajax.url('/puppet/environments/' + id + '/users').load();
-//        $environmentUsers.fnDraw();
 
         $.ajax({
             url: "/puppet/environments/" + id + "/available-users",
