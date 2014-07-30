@@ -34,6 +34,11 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    'view_helpers' => [
+        'invokables' => [
+            'environmentSelect' => 'KmbBase\View\Helper\EnvironmentSelect',
+        ],
+    ],
     'view_helper_config' => [
         'flashmessenger' => [
             'message_open_format'      => '<ul class="flash"><li%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>',
