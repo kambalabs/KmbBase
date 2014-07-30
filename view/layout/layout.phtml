@@ -40,7 +40,11 @@
                     <ul class="nav navbar-nav pull-right">
                         <li><form class="form-inline" role="form" id="environment-form">
                                 <div class="form-group">
-                                    <?php echo $this->environmentSelect('current-environment', 'currentEnvironment', $this->translate('All'), 'readEnv') ?>
+                                    <select id="current-environment" class="form-control" name="currentEnvironment>" data-placeholder="<?php echo $this->translate('Select an environment') ?>" data-rel="chosen" style="display: none;">
+                                        <option></option>
+                                        <option value="0"><?php echo $this->translate('All') ?></option>
+                                        <?php echo $this->environmentSelect('readEnv') ?>
+                                    </select>
                                 </div>
                             </form>
                         </li>
