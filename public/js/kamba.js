@@ -103,11 +103,6 @@ $(document).ready(function () {
         $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
     });
 
-    var environmentUsers = $('#update-environment-users').DataTable($.extend({}, dataTablesDefaultSettings, {
-        "lengthChange": false,
-        "displayLength": 5
-    }));
-
     var updateEnvironment = $('#update-environment');
     updateEnvironment.on('show.bs.modal', function(e) {
         $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
@@ -116,27 +111,61 @@ $(document).ready(function () {
         var parentSelect = $('#update-parent-select');
         parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
         parentSelect.trigger('chosen:updated');
+    });
 
-        var id = $(e.relatedTarget).attr('data-id');
-        environmentUsers.ajax.url('/puppet/environments/' + id + '/users').load();
+    var environmentUsers = $('#environment-users').DataTable($.extend({}, dataTablesDefaultSettings, {
+        "lengthChange": false,
+        "displayLength": 5
+    }));
 
+    function refreshUserSelect(id) {
         $.ajax({
             url: "/puppet/environments/" + id + "/available-users",
             dataType: "json"
-        }).done(function(data) {
-            $('#update-environment-user-select').html('');
-            $(data.users).each(function(){
-                $('#update-environment-user-select').append('<option value="' + this.id + '">' + this.name + ' - ' + this.login + '</option>');
+        }).done(function (data) {
+            $('#environment-user-select').html('');
+            $(data.users).each(function () {
+                $('#environment-user-select').append('<option value="' + this.id + '">' + this.name + ' - ' + this.login + '</option>');
             });
-            $("#update-environment-user-select").trigger("chosen:updated");
+            $("#environment-user-select").trigger("chosen:updated");
         });
+    }
+
+    var manageEnvironmentUsers = $('#manage-environment-users');
+    manageEnvironmentUsers.on('show.bs.modal', function(e) {
+        $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
+        $('#current-environment-name').html($(e.relatedTarget).attr('data-full-name'));
+        var id = $(e.relatedTarget).attr('data-id');
+
+        $('#add-users').attr('data-environment-id', id);
+        environmentUsers.ajax.url('/puppet/environments/' + id + '/users').load();
+        refreshUserSelect(id);
     });
 
-    updateEnvironment.on('click', '.remove-user', function() {
+    $('#add-users').click(function() {
+        var id = $(this).attr('data-environment-id');
+        var users = [];
+        $("#environment-user-select option:selected").each(function () {
+            users.push($(this).attr('value'));
+        });
         $.ajax({
-            url: "/puppet/environments/" + $(this).attr('data-environment-id') + "/users/" + $(this).attr('data-user-id') + "/remove"
+            type: "POST",
+            url: "/puppet/environments/" + id + "/add-users",
+            data: {'users': users}
         }).done(function() {
             environmentUsers.ajax.reload();
+            refreshUserSelect(id);
+        });
+        return false;
+    });
+
+    manageEnvironmentUsers.on('click', '.remove-user', function() {
+        var id = $(this).attr('data-environment-id');
+        $.ajax({
+            url: "/puppet/environments/" + id + "/users/" + $(this).attr('data-user-id') + "/remove"
+        }).done(function() {
+            environmentUsers.ajax.reload();
+            refreshUserSelect(id);
         });
         return false;
     });
