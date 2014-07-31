@@ -13,6 +13,18 @@ $(document).ready(function () {
         e.stopPropagation();
     });
 
+    $('#collapse-all').click(function() {
+        $('.tree li.parent_li > ul > li').hide('fast');
+        $('#expand-all').show('fast');
+        $('#collapse-all').hide('fast');
+    });
+
+    $('#expand-all').click(function() {
+        $('.tree li.parent_li > ul > li').show('fast');
+        $('#collapse-all').show('fast');
+        $('#expand-all').hide('fast');
+    });
+
     var dataTablesDefaultSettings = {
         "sPaginationType": "bootstrap",
         "bProcessing": true,

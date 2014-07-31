@@ -22,6 +22,10 @@ button, input, optgroup, select, textarea {
     color: #5bc0de;
 }
 
+.icon-yellow {
+    color: #f0ad4e;
+}
+
 .modal-backdrop.fade.in {
     opacity: 0;
 }
@@ -37,6 +41,17 @@ ul.flash  {
 
 .tree {
     min-height: 20px;
+}
+
+.tree > div:first-child {
+    position:relative;
+    margin:0;
+    padding:0 15px 0 0;
+    z-index: 99;
+}
+
+#expand-all {
+    display: none;
 }
 
 .tree li {
