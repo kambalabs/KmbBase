@@ -15,12 +15,14 @@ $(document).ready(function () {
 
     $('#collapse-all').click(function() {
         $('.tree li.parent_li > ul > li').hide('fast');
+        $('.tree li.parent_li > span > i').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
         $('#expand-all').show('fast');
         $('#collapse-all').hide('fast');
     });
 
     $('#expand-all').click(function() {
         $('.tree li.parent_li > ul > li').show('fast');
+        $('.tree li.parent_li > span > i').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
         $('#collapse-all').show('fast');
         $('#expand-all').hide('fast');
     });
