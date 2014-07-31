@@ -408,3 +408,12 @@ select.form-control + .chosen-container .chosen-search input[type=text]:focus{
     background: url('/images/wait.gif') center center no-repeat;
     text-indent: -999999px;
 }
+
+form#set-environment-form div.input-group {
+    margin-top: -15px;
+}
+
+#environment_chosen,
+form#set-environment-form div.input-group-btn {
+    width: auto!important;
+}

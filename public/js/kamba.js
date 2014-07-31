@@ -60,10 +60,12 @@ $(document).ready(function () {
             }
         },
         "order": [
-            [ 0, "asc" ]
+            [ 1, "asc" ]
         ],
         "aoColumns": [
+            { "bSortable": false },
             { "orderSequence": [ "asc", "desc" ] },
+            { "bSortable": false },
             { "bSortable": false },
             { "bSortable": false },
             { "bSortable": false },
