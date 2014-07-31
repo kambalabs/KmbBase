@@ -122,6 +122,7 @@ $(document).ready(function () {
         $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
         $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
         $('#current-environment-name').html($(e.relatedTarget).attr('data-full-name'));
+        $('#update-environment-default').prop('checked', $(e.relatedTarget).attr('data-default') == 1);
         var parentSelect = $('#update-parent-select');
         parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
         parentSelect.trigger('chosen:updated');
