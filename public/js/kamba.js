@@ -76,6 +76,10 @@ $(document).ready(function () {
         ]
     }));
 
+    $('#select-all-nodes').click(function() {
+       $('#servers input.select-node').prop('checked', $(this).prop('checked'));
+    });
+
     $('#fact-filter-submit').click(function () {
         if ($('#fact').val() == 'default') {
             $('#fact').closest('.form-group')
