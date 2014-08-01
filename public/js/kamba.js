@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-    var prefixUri = document.URL.match(/(\/env\/[0-9]+)/)[1];
+    var match = document.URL.match(/(\/env\/[0-9]+)/);
+    var prefixUri = match ? match[1] : '';
 
     $('#current-environment').change(function() {
         location.href = document.URL.replace(/\/env\/[0-9]+\//gm, '/env/' + $('#current-environment').val() + '/');
