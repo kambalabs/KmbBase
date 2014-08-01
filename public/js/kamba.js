@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    var prefixUri = document.URL.match(/(\/env\/[0-9]+)/)[1];
+
+    $('#current-environment').change(function() {
+        location.href = document.URL.replace(/\/env\/[0-9]+\//gm, '/env/' + $('#current-environment').val() + '/');
+    });
+
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
     $('.tree li.parent_li > span > i').on('click', function (e) {
         var children = $(this).closest('li.parent_li').find(' > ul > li');
@@ -53,7 +59,7 @@ $(document).ready(function () {
         "serverSide": true,
         "stateSave": true,
         "ajax": {
-            "url": "/servers",
+            "url": window.location,
             "data": function (data) {
                 data.factName = $('#fact').val();
                 data.factValue = $('#value').val();
@@ -108,7 +114,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "stateSave": true,
-        "ajax": "/puppet/reports"
+        "ajax": window.location
     }));
 
     $('[data-rel=chosen]').chosen({
@@ -140,8 +146,9 @@ $(document).ready(function () {
     }));
 
     function refreshUserSelect(id) {
+        console.log(prefixUri);
         $.ajax({
-            url: "/puppet/environments/" + id + "/available-users",
+            url: prefixUri + "/puppet/environment/" + id + "/available-users",
             dataType: "json"
         }).done(function (data) {
             $('#environment-user-select').html('');
@@ -159,7 +166,7 @@ $(document).ready(function () {
         var id = $(e.relatedTarget).attr('data-id');
 
         $('#add-users').attr('data-environment-id', id);
-        environmentUsers.ajax.url('/puppet/environments/' + id + '/users').load();
+        environmentUsers.ajax.url(prefixUri + '/puppet/environment/' + id + '/users').load();
         refreshUserSelect(id);
     });
 
@@ -171,7 +178,7 @@ $(document).ready(function () {
         });
         $.ajax({
             type: "POST",
-            url: "/puppet/environments/" + id + "/add-users",
+            url: prefixUri + "/puppet/environment/" + id + "/add-users",
             data: {'users': users}
         }).done(function() {
             environmentUsers.ajax.reload();
@@ -183,7 +190,7 @@ $(document).ready(function () {
     manageEnvironmentUsers.on('click', '.remove-user', function() {
         var id = $(this).attr('data-environment-id');
         $.ajax({
-            url: "/puppet/environments/" + id + "/users/" + $(this).attr('data-user-id') + "/remove"
+            url: prefixUri + "/puppet/environment/" + id + "/user/" + $(this).attr('data-user-id') + "/remove"
         }).done(function() {
             environmentUsers.ajax.reload();
             refreshUserSelect(id);

@@ -394,7 +394,7 @@ select.form-control + .chosen-container .chosen-search input[type=text]:focus{
     border-bottom: none;
 }
 
-#environment-form {
+#current-environment-form {
     margin: 11px 5px;
 }
 

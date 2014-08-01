@@ -39,9 +39,9 @@
                 <?php if ($user = $this->identity()): ?>
                     <ul class="nav navbar-nav pull-right">
                         <li>
-                            <form class="form-inline" role="form" id="environment-form">
+                            <form class="form-inline" role="form" id="current-environment-form">
                                 <div class="form-group">
-                                    <select id="current-environment" class="form-control" name="currentEnvironment>" data-placeholder="<?php echo $this->translate('Select an environment') ?>" data-rel="chosen" style="display: none;">
+                                    <select id="current-environment" class="form-control" name="env" data-placeholder="<?php echo $this->translate('Select an environment') ?>" data-rel="chosen" style="display: none;">
                                         <option></option>
                                         <option value="0"><?php echo $this->translate('All') ?></option>
                                         <?php echo $this->environmentSelect('readEnv') ?>
@@ -63,15 +63,15 @@
                 <?php endif ?>
                 <div class="collapse navbar-collapse header-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo $this->url('dashboard') ?>"><?php echo $this->translate('Dashboard') ?></a></li>
-                        <li><a href="<?php echo $this->url('servers') ?>"><?php echo $this->translate('Servers') ?></a></li>
+                        <li><a href="<?php echo $this->url('dashboard', [], [], true) ?>"><?php echo $this->translate('Dashboard') ?></a></li>
+                        <li><a href="<?php echo $this->url('servers', [], [], true) ?>"><?php echo $this->translate('Servers') ?></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Puppet') ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo $this->url('puppet/default', ['controller' => 'environments']) ?>"><?php echo $this->translate('Environments') ?></a></li>
+                                <li><a href="<?php echo $this->url('puppet', ['controller' => 'environments', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Environments') ?></a></li>
                                 <li><a href=""><?php echo $this->translate('Modules') ?></a></li>
                                 <li><a href=""><?php echo $this->translate('Groups') ?></a></li>
-                                <li><a href="<?php echo $this->url('puppet/default', ['controller' => 'reports']) ?>"><?php echo $this->translate('Day reports') ?></a></li>
+                                <li><a href="<?php echo $this->url('puppet', ['controller' => 'reports', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Day reports') ?></a></li>
                             </ul>
                         </li>
                     </ul>
