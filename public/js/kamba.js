@@ -4,7 +4,14 @@ $(document).ready(function () {
     var prefixUri = match ? match[1] : '';
 
     $('#current-environment').change(function() {
-        location.href = document.URL.replace(/\/env\/[0-9]+\//gm, '/env/' + $('#current-environment').val() + '/');
+        if (match) {
+            location.href = document.URL.replace(/\/env\/[0-9]+\//gm, '/env/' + $('#current-environment').val() + '/');
+        } else {
+            var parser = document.createElement('a');
+            parser.href = document.URL;
+            var re = new RegExp(parser.pathname, 'gm')
+            location.href = document.URL.replace(re, '/env/' + $('#current-environment').val() + parser.pathname);
+        }
     });
 
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
