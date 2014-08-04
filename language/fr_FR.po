@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-31 12:27+0100\n"
-"PO-Revision-Date: 2014-07-31 12:27+0100\n"
+"POT-Creation-Date: 2014-08-04 16:33+0100\n"
+"PO-Revision-Date: 2014-08-04 16:33+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: \n"
@@ -90,49 +90,48 @@ msgstr "Aucune exception disponible"
 msgid "An error occurred"
 msgstr "Une erreur est survenue"
 
-#: ../view/layout/layout.phtml:43
+#: ../view/layout/layout.phtml:44
 msgid "Select an environment"
 msgstr "Choisir un environnement"
 
-#: ../view/layout/layout.phtml:45
+#: ../view/layout/layout.phtml:46
 msgid "All"
 msgstr "Tous"
 
-#: ../view/layout/layout.phtml:58
+#: ../view/layout/layout.phtml:59
 msgid "Signout"
 msgstr "Se déconnecter"
 
-#: ../view/layout/layout.phtml:65
+#: ../view/layout/layout.phtml:66
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: ../view/layout/layout.phtml:66
+#: ../view/layout/layout.phtml:67
 msgid "Servers"
 msgstr "Serveurs"
 
-#: ../view/layout/layout.phtml:68
+#: ../view/layout/layout.phtml:69
 msgid "Puppet"
 msgstr "Puppet"
 
-#: ../view/layout/layout.phtml:70
+#: ../view/layout/layout.phtml:71
 msgid "Environments"
 msgstr "Environnements"
 
-#: ../view/layout/layout.phtml:71
+#: ../view/layout/layout.phtml:72
 msgid "Modules"
 msgstr "Modules"
 
-#: ../view/layout/layout.phtml:72
+#: ../view/layout/layout.phtml:73
 msgid "Groups"
 msgstr "Groupes"
-
-#: ../view/layout/layout.phtml:73
-msgid "Classes"
-msgstr "Classes"
 
 #: ../view/layout/layout.phtml:74
 msgid "Day reports"
 msgstr "Rapports du jour"
+
+#~ msgid "Classes"
+#~ msgstr "Classes"
 
 #~ msgid "Logout"
 #~ msgstr "Se déconnecter"
