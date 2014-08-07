@@ -68,7 +68,6 @@ $(document).ready(function () {
     var serversTable = $('#servers').dataTable($.extend({}, dataTablesDefaultSettings, {
         "processing": true,
         "serverSide": true,
-        "stateSave": true,
         "ajax": {
             "url": window.location,
             "data": function (data) {
@@ -124,7 +123,6 @@ $(document).ready(function () {
     $('#reports').dataTable($.extend({}, dataTablesDefaultSettings, {
         "processing": true,
         "serverSide": true,
-        "stateSave": true,
         "ajax": window.location
     }));
 
