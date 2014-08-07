@@ -1,17 +1,21 @@
 $(document).ready(function () {
 
-    var match = document.URL.match(/(\/env\/[0-9]+)/);
-    var prefixUri = match ? match[1] : '';
+    var parser = document.createElement('a');
+    parser.href = document.URL;
+    var prefixUriMatch = parser.pathname.match(/(\/env\/[0-9]+)/);
+    var prefixUri = prefixUriMatch ? prefixUriMatch[1] : '';
 
     $('#current-environment').change(function() {
-        if (match) {
-            location.href = document.URL.replace(/\/env\/[0-9]+\//gm, '/env/' + $('#current-environment').val() + '/');
+        var newUrl = '';
+        if (prefixUriMatch) {
+            var re = new RegExp(prefixUri)
+            newUrl += parser.pathname.replace(re, '/env/' + $('#current-environment').val());
         } else {
-            var parser = document.createElement('a');
-            parser.href = document.URL;
-            var re = new RegExp(parser.pathname, 'gm')
-            location.href = document.URL.replace(re, '/env/' + $('#current-environment').val() + parser.pathname);
+            newUrl += '/env/' + $('#current-environment').val() + parser.pathname;
         }
+        newUrl += parser.search + parser.hash;
+        console.log(newUrl);
+        location.href = newUrl;
     });
 
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
