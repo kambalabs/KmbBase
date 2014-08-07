@@ -14,7 +14,6 @@ $(document).ready(function () {
             newUrl += '/env/' + $('#current-environment').val() + parser.pathname;
         }
         newUrl += parser.search + parser.hash;
-        console.log(newUrl);
         location.href = newUrl;
     });
 
