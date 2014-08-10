@@ -56,6 +56,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="glyphicon glyphicon-user"></i> <?php echo $user->getLogin() ?></a></li>
+                                <li><a href="#" id="clear-cache"><i class="glyphicon glyphicon-trash"></i> <?php echo $this->translate('Clear cache') ?></a></li>
                                 <li><a href="<?php echo $this->url('signout') ?>"><i class="glyphicon glyphicon-off"></i> <?php echo $this->translate('Signout') ?></a></li>
                             </ul>
                         </li>
