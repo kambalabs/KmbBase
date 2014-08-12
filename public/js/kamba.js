@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(window).load(function () {
 
     var parser = document.createElement('a');
     parser.href = document.URL;

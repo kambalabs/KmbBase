@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(window).load(function () {
     var match = document.URL.match(/(\/env\/[0-9]+)/);
     var prefixUri = match ? match[1] : '';
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
         });
     };
 
-    setTimeout(refreshExpiredCache, 5000);
+    refreshExpiredCache();
 
     $('#clear-cache').click(function () {
         $.getJSON(prefixUri + '/clear-cache');
