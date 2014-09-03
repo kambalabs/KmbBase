@@ -18,30 +18,53 @@ $(window).load(function () {
     });
 
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
-    $('.tree li.parent_li > span > i').on('click', function (e) {
-        var children = $(this).closest('li.parent_li').find(' > ul > li');
-        if (children.is(":visible")) {
-            children.hide('fast');
-            $(this).addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
-        } else {
-            children.show('fast');
-            $(this).addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
-        }
+    $('.tree li.parent_li > span').on('click', 'i.glyphicon-minus-sign', function (e) {
+        $(this).closest('li.parent_li').find(' > ul > li').hide('fast');
+        $(this).addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+        e.stopPropagation();
+    });
+    $('.tree li.parent_li > span').on('click', 'i.glyphicon-plus-sign', function (e) {
+        $(this).closest('li.parent_li').find(' > ul > li').show('fast');
+        $(this).addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
+        e.stopPropagation();
+    });
+    $('.tree li > span').on('click', 'i.glyphicon-zoom-out', function (e) {
+        $(this).parent().children('dl.parameters').hide('fast');
+        $(this).addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
+        e.stopPropagation();
+    });
+    $('.tree li > span').on('click', 'i.glyphicon-zoom-in', function (e) {
+        $(this).parent().children('dl.parameters').show('fast');
+        $(this).addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
         e.stopPropagation();
     });
 
     $('#collapse-all').click(function() {
         $('.tree li.parent_li > ul > li').hide('fast');
-        $('.tree li.parent_li > span > i').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+        $('.tree li.parent_li > span > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
         $('#collapse-all').hide();
         $('#expand-all').show();
     });
 
     $('#expand-all').click(function() {
         $('.tree li.parent_li > ul > li').show('fast');
-        $('.tree li.parent_li > span > i').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
+        $('.tree li.parent_li > span > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
         $('#expand-all').hide();
         $('#collapse-all').show();
+    });
+
+    $('#show-all').click(function() {
+        $('.tree ul > li > span > dl.parameters').show('fast');
+        $('.tree li > span > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
+        $('#show-all').hide();
+        $('#hide-all').show();
+    });
+
+    $('#hide-all').click(function() {
+        $('.tree ul > li > span > dl.parameters').hide('fast');
+        $('.tree li > span > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
+        $('#hide-all').hide();
+        $('#show-all').show();
     });
 
     var dataTablesDefaultSettings = {

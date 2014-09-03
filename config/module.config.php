@@ -37,6 +37,8 @@ return [
     'view_helpers' => [
         'invokables' => [
             'environmentSelect' => 'KmbBase\View\Helper\EnvironmentSelect',
+            'markdownToHtml'    => 'KmbBase\View\Helper\MarkdownToHtml',
+            'printBoolean'      => 'KmbBase\View\Helper\PrintBoolean',
         ],
     ],
     'view_helper_config' => [

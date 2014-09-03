@@ -6,12 +6,45 @@ button, input, optgroup, select, textarea {
     font-weight: normal;
 }
 
+.note {
+    font-style: italic;
+}
+
+.required::after {
+    color: #d9534f;
+    content: ' *';
+}
+
 .lightgrey {
     color: #999;
 }
 
+.red {
+    color: #d9534f;
+}
+
+.bg-red {
+    background-color: #f2dede;
+}
+
+.lightblue {
+    color: #5bc0de;
+}
+
+.blue {
+    color: #428bca;
+}
+
+.yellow {
+    color: #f0ad4e;
+}
+
+.green {
+    color: #5cb85c;
+}
+
 .icon-red {
-    color: #d43f3a;
+    color: #d9534f;
 }
 
 .icon-grey {
@@ -50,8 +83,16 @@ ul.flash  {
     z-index: 99;
 }
 
-#expand-all {
-    display: none;
+#hide-all, #show-all {
+    margin-left: 10px;
+}
+
+.tree dl.parameters {
+    font-size: 90%;
+}
+
+.tree dd.value::before {
+    content: '• ';
 }
 
 .tree li {
@@ -103,7 +144,7 @@ ul.flash  {
     text-decoration:none
 }
 
-.tree li.parent_li>span>i {
+.tree li>span>i {
     cursor:pointer
 }
 
@@ -119,6 +160,23 @@ ul.flash  {
     background: #f8f8f8;
     border:1px solid #94a0b4;
     color:#000
+}
+
+.tree dl.dl-horizontal.parameters {
+    margin-bottom: 0;
+}
+
+.tree dl.dl-horizontal.parameters > dt {
+    margin-left: 18px;
+    text-align: left;
+    font-style: italic;
+    width: 122px;
+}
+
+.tree dl.dl-horizontal.parameters > dd {
+    font-style: italic;
+    margin-left: 140px;
+    width: 150px;
 }
 
 .table pre {

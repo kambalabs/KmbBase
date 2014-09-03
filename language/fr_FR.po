@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-11 00:41+0100\n"
-"PO-Revision-Date: 2014-08-11 00:41+0100\n"
+"POT-Creation-Date: 2014-09-03 13:58+0100\n"
+"PO-Revision-Date: 2014-09-03 13:58+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: \n"
@@ -16,6 +16,22 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:36
+msgid "yes"
+msgstr "oui"
+
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:36
+msgid "no"
+msgstr "non"
+
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:43
+msgid "true"
+msgstr "vrai"
+
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:43
+msgid "false"
+msgstr "faux"
 
 #: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
@@ -106,31 +122,31 @@ msgstr "Vider le cache"
 msgid "Signout"
 msgstr "Se déconnecter"
 
-#: ../view/layout/layout.phtml:67
+#: ../view/layout/layout.phtml:68
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: ../view/layout/layout.phtml:68
+#: ../view/layout/layout.phtml:69
 msgid "Servers"
 msgstr "Serveurs"
 
-#: ../view/layout/layout.phtml:70
+#: ../view/layout/layout.phtml:71
 msgid "Puppet"
 msgstr "Puppet"
 
-#: ../view/layout/layout.phtml:73
+#: ../view/layout/layout.phtml:74
 msgid "Environments"
 msgstr "Environnements"
 
-#: ../view/layout/layout.phtml:75
+#: ../view/layout/layout.phtml:76
 msgid "Modules"
 msgstr "Modules"
 
-#: ../view/layout/layout.phtml:76
+#: ../view/layout/layout.phtml:77
 msgid "Groups"
 msgstr "Groupes"
 
-#: ../view/layout/layout.phtml:77
+#: ../view/layout/layout.phtml:78
 msgid "Day reports"
 msgstr "Rapports du jour"
 
