@@ -42,6 +42,8 @@ $(window).load(function () {
     $('#collapse-all').click(function() {
         $('.tree li.parent_li > ul > li').hide('fast');
         $('.tree li.parent_li > span > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+        $('.tree ul > li > span > dl.parameters').hide('fast');
+        $('.tree li > span > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
         $('#collapse-all').hide();
         $('#expand-all').show();
     });
@@ -49,22 +51,10 @@ $(window).load(function () {
     $('#expand-all').click(function() {
         $('.tree li.parent_li > ul > li').show('fast');
         $('.tree li.parent_li > span > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
-        $('#expand-all').hide();
-        $('#collapse-all').show();
-    });
-
-    $('#show-all').click(function() {
         $('.tree ul > li > span > dl.parameters').show('fast');
         $('.tree li > span > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
-        $('#show-all').hide();
-        $('#hide-all').show();
-    });
-
-    $('#hide-all').click(function() {
-        $('.tree ul > li > span > dl.parameters').hide('fast');
-        $('.tree li > span > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
-        $('#hide-all').hide();
-        $('#show-all').show();
+        $('#expand-all').hide();
+        $('#collapse-all').show();
     });
 
     var dataTablesDefaultSettings = {
