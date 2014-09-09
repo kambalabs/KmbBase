@@ -32,6 +32,10 @@ class PrintBoolean extends AbstractTranslatorHelper
     {
         $translator = $this->getTranslator();
 
+        if ($boolean === null) {
+            return '-';
+        }
+
         if ($format === self::YES_NO) {
             return $boolean ? $translator->translate('yes') : $translator->translate('no');
         }

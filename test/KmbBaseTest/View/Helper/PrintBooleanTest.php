@@ -49,4 +49,10 @@ class PrintBooleanTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(0, $this->printBoolean(false, PrintBoolean::INT));
     }
+
+    /** @test */
+    public function canInvokeWithNull()
+    {
+        $this->assertEquals('-', $this->printBoolean(null));
+    }
 }
