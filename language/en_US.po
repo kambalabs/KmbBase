@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-03 13:58+0100\n"
-"PO-Revision-Date: 2014-09-03 13:58+0100\n"
+"POT-Creation-Date: 2014-09-29 00:44+0100\n"
+"PO-Revision-Date: 2014-09-29 00:44+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: \n"
@@ -17,19 +17,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:36
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:40
 msgid "yes"
 msgstr ""
 
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:36
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:40
 msgid "no"
 msgstr ""
 
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:43
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:47
 msgid "true"
 msgstr ""
 
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:43
+#: ../src/KmbBase/View/Helper/PrintBoolean.php:47
 msgid "false"
 msgstr ""
 
@@ -106,47 +106,47 @@ msgstr ""
 msgid "An error occurred"
 msgstr ""
 
-#: ../view/layout/layout.phtml:44
+#: ../view/layout/layout.phtml:45
 msgid "Select an environment"
 msgstr ""
 
-#: ../view/layout/layout.phtml:46
+#: ../view/layout/layout.phtml:47
 msgid "All"
 msgstr ""
 
-#: ../view/layout/layout.phtml:59
+#: ../view/layout/layout.phtml:60
 msgid "Clear cache"
 msgstr ""
 
-#: ../view/layout/layout.phtml:60
+#: ../view/layout/layout.phtml:61
 msgid "Signout"
 msgstr ""
 
-#: ../view/layout/layout.phtml:68
+#: ../view/layout/layout.phtml:69
 msgid "Dashboard"
 msgstr ""
 
-#: ../view/layout/layout.phtml:69
+#: ../view/layout/layout.phtml:70
 msgid "Servers"
 msgstr ""
 
-#: ../view/layout/layout.phtml:71
+#: ../view/layout/layout.phtml:72
 msgid "Puppet"
 msgstr ""
 
 #: ../view/layout/layout.phtml:74
-msgid "Environments"
+msgid "Day reports"
 msgstr ""
 
 #: ../view/layout/layout.phtml:76
-msgid "Modules"
-msgstr ""
-
-#: ../view/layout/layout.phtml:77
-msgid "Groups"
+msgid "Environments"
 msgstr ""
 
 #: ../view/layout/layout.phtml:78
-msgid "Day reports"
+msgid "Modules"
+msgstr ""
+
+#: ../view/layout/layout.phtml:79
+msgid "Groups"
 msgstr ""
 

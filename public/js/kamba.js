@@ -17,6 +17,13 @@ $(window).load(function () {
         location.href = newUrl;
     });
 
+    $('#groups > tbody').sortable({
+        update: function (event, ui) {
+            var data = $(this).sortable('serialize');
+            $.post(prefixUri + '/puppet/groups/update', data);
+        }
+    }).disableSelection();
+
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
     $('.tree li.parent_li > span').on('click', 'i.glyphicon-minus-sign', function (e) {
         $(this).closest('li.parent_li').find(' > ul > li').hide('fast');

@@ -16,6 +16,7 @@
                         ->prependStylesheet($this->basePath() . '/css/chosen-bootstrap.css')
                         ->prependStylesheet($this->basePath() . '/css/jquery.gritter.css')
                         ->prependStylesheet($this->basePath() . '/css/DT_bootstrap.css')
+                        ->prependStylesheet($this->basePath() . '/css/jquery-ui.min.css')
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
 
         <?php echo $this->headScript()
@@ -69,12 +70,12 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Puppet') ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="<?php echo $this->url('puppet', ['controller' => 'reports', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Day reports') ?></a></li>
                                 <?php if ($this->isGranted('manageEnv')): ?>
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'environments', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Environments') ?></a></li>
                                 <?php endif ?>
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'modules', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Modules') ?></a></li>
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'groups', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Groups') ?></a></li>
-                                <li><a href="<?php echo $this->url('puppet', ['controller' => 'reports', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Day reports') ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -98,6 +99,7 @@
             ->prependFile($this->basePath() . '/js/jquery.dataTables.min.js')
             ->prependFile($this->basePath() . '/js/jquery.jeditable.js')
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/jquery-ui.min.js')
             ->prependFile($this->basePath() . '/js/jquery-2.1.0.min.js')
         ; ?>
     </body>

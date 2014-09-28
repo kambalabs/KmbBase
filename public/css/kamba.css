@@ -6,6 +6,21 @@ button, input, optgroup, select, textarea {
     font-weight: normal;
 }
 
+.grab {
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    color: #ccc;
+    margin-right: 5px;
+    overflow: hidden;
+    width: 0.65em;
+}
+.grab:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
 .note {
     font-style: italic;
 }

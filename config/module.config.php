@@ -1,8 +1,30 @@
 <?php
 return [
+    'navigation' => [
+        'default' => [
+            [
+                'label' => 'Dashboard',
+                'route' => 'dashboard',
+                'options' => [
+                    'useRouteMatch' => true,
+                ],
+            ],
+            [
+                'label' => 'Servers',
+                'route' => 'servers',
+            ],
+            [
+                'label' => 'Puppet',
+                'route' => 'puppet',
+            ],
+        ],
+    ],
     'service_manager' => [
         'invokables' => [
             'DateTimeFactory' => 'KmbBase\DateTimeFactory',
+        ],
+        'factories' => [
+            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ],
     ],
     'translator' => [
