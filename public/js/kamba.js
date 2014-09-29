@@ -24,6 +24,24 @@ $(window).load(function () {
         }
     }).disableSelection();
 
+    $('.editable > input').focus(function() {
+        var parent = $(this).closest('.editable');
+        parent.addClass('input-group');
+        parent.children('.input-group-btn').show();
+    });
+
+    $('.editable button[type=reset]').click(function () {
+        var parent = $(this).closest('.editable');
+        parent.removeClass('input-group');
+        parent.children('.input-group-btn').hide();
+    });
+    $('.editable > input').keyup(function(evt) {
+        if (evt.keyCode == 27) {
+            $(this).closest('.editable').find('button[type=reset]').click();
+            $(this).blur();
+        }
+    });
+
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
     $('.tree li.parent_li > span').on('click', 'i.glyphicon-minus-sign', function (e) {
         $(this).closest('li.parent_li').find(' > ul > li').hide('fast');
