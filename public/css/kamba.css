@@ -34,6 +34,10 @@ button, input, optgroup, select, textarea {
     color: #999;
 }
 
+.darkgrey {
+    color: #666;
+}
+
 .red {
     color: #d9534f;
 }

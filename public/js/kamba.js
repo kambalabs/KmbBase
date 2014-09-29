@@ -193,7 +193,6 @@ $(window).load(function () {
     }));
 
     function refreshUserSelect(id) {
-        console.log(prefixUri);
         $.ajax({
             url: prefixUri + "/puppet/environment/" + id + "/available-users",
             dataType: "json"
@@ -250,4 +249,27 @@ $(window).load(function () {
         parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
         parentSelect.trigger('chosen:updated');
     });
+
+    var groupServers = $('#group-servers');
+    groupServers.on('show.bs.modal', function(e) {
+        $('#servers-filter').val('');
+        var servers = $(this).find('.list-group');
+        servers.empty();
+        var url = $(e.relatedTarget).data('href') + '?include=' + $('#group-include-pattern').val() + '&exclude=' + $('#group-exclude-pattern').val();
+        $.getJSON(url, function (data) {
+            $('#modal-servers-count').html(data.servers.length);
+            for (var index in data.servers) {
+                servers.append('<a href="#" class="list-group-item">' + data.servers[index] + '</a>');
+            }
+        });
+    });
+
+    $('#servers-filter').keyup(function () {
+        var rex = new RegExp($(this).val(), 'i');
+        var item = $('.list-group-item');
+        item.hide();
+        item.filter(function () {
+            return rex.test($(this).text());
+        }).show();
+    })
 });
