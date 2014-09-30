@@ -277,4 +277,22 @@ $(window).load(function () {
             return rex.test($(this).text());
         }).show();
     })
+
+    $('.class-name').click(function () {
+        var activeParameters = $('.class-parameters.active');
+        console.log(activeParameters.html());
+        if (activeParameters.length) {
+            activeParameters.hide();
+            activeParameters.removeClass('active');
+        } else {
+            $('#group-description').hide();
+        }
+        var parameters = $('.class-parameters[data-class-id=' + $(this).attr('data-class-id') + ']');
+        parameters.show();
+        parameters.addClass('active');
+    });
+    $('.class-parameters button.close').click(function() {
+        $(this).closest('.class-parameters').removeClass('active').hide();
+        $('#group-description').show();
+    });
 });
