@@ -42,7 +42,7 @@
                         <li>
                             <form class="form-inline" role="form" id="current-environment-form">
                                 <div class="form-group">
-                                    <select id="current-environment" class="form-control" name="env" data-placeholder="<?php echo $this->translate('Select an environment') ?>" data-rel="chosen" style="display: none;">
+                                    <select id="current-environment" tabindex="90" class="form-control" name="env" data-placeholder="<?php echo $this->translate('Select an environment') ?>" data-rel="chosen" style="display: none;">
                                         <option></option>
                                         <option value="0"><?php echo $this->translate('All') ?></option>
                                         <?php echo $this->environmentSelect('readEnv', true) ?>
@@ -51,14 +51,14 @@
                             </form>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                            <a class="dropdown-toggle" tabindex="91" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
                                 <?php echo $user->getName() ?>
                                 <strong class="caret"></strong>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><i class="glyphicon glyphicon-user"></i> <?php echo $user->getLogin() ?></a></li>
-                                <li><a href="" id="clear-cache"><i class="glyphicon glyphicon-trash"></i> <?php echo $this->translate('Clear cache') ?></a></li>
-                                <li><a href="<?php echo $this->url('signout') ?>"><i class="glyphicon glyphicon-off"></i> <?php echo $this->translate('Signout') ?></a></li>
+                                <li><a href="#" tabindex="92"><i class="glyphicon glyphicon-user"></i> <?php echo $user->getLogin() ?></a></li>
+                                <li><a href="" tabindex="93" id="clear-cache"><i class="glyphicon glyphicon-trash"></i> <?php echo $this->translate('Clear cache') ?></a></li>
+                                <li><a href="<?php echo $this->url('signout') ?>" tabindex="94"><i class="glyphicon glyphicon-off"></i> <?php echo $this->translate('Signout') ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -66,10 +66,10 @@
                 <div class="collapse navbar-collapse header-collapse">
                     <?php //echo $this->navigation('navigation')->menu()->renderMenu(null, ['ulClass' => 'nav navbar-nav']); ?>
                     <ul class="nav navbar-nav">
-                        <li><a href="<?php echo $this->url('dashboard', ['action' => 'index'], [], true) ?>"><?php echo $this->translate('Dashboard') ?></a></li>
-                        <li><a href="<?php echo $this->url('servers', ['action' => 'index'], [], true) ?>"><?php echo $this->translate('Servers') ?></a></li>
+                        <li><a tabindex="10" href="<?php echo $this->url('dashboard', ['action' => 'index'], [], true) ?>"><?php echo $this->translate('Dashboard') ?></a></li>
+                        <li><a tabindex="20" href="<?php echo $this->url('servers', ['action' => 'index'], [], true) ?>"><?php echo $this->translate('Servers') ?></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Puppet') ?> <span class="caret"></span></a>
+                            <a tabindex="30" href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Puppet') ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'reports', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Day reports') ?></a></li>
                                 <?php if ($this->isGranted('manageEnv')): ?>

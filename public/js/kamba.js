@@ -24,22 +24,24 @@ $(window).load(function () {
         }
     }).disableSelection();
 
-    $('.editable > input').focus(function() {
-        var parent = $(this).closest('.editable');
-        parent.addClass('input-group');
-        parent.children('.input-group-btn').show();
+
+    /* For IE < 9 */
+    var propertyChangeUnbound = false;
+    $('.editable').on('propertychange', function(e) {
+        if (e.originalEvent.propertyName == 'value') {
+            $($(this).attr('data-target')).show();
+        }
+    });
+    $('.editable').on('input', function() {
+        if (!propertyChangeUnbound) {
+            $(this).unbind('propertychange');
+            propertyChangeUnbound = true;
+        }
+        $($(this).attr('data-target')).show();
     });
 
-    $('.editable button[type=reset]').click(function () {
-        var parent = $(this).closest('.editable');
-        parent.removeClass('input-group');
-        parent.children('.input-group-btn').hide();
-    });
-    $('.editable > input').keyup(function(evt) {
-        if (evt.keyCode == 27) {
-            $(this).closest('.editable').find('button[type=reset]').click();
-            $(this).blur();
-        }
+    $('#actions button[type=reset]').click(function () {
+        $('#actions').hide();
     });
 
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
@@ -255,7 +257,10 @@ $(window).load(function () {
         $('#servers-filter').val('');
         var servers = $(this).find('.list-group');
         servers.empty();
-        var url = $(e.relatedTarget).data('href') + '?include=' + $('#group-include-pattern').val() + '&exclude=' + $('#group-exclude-pattern').val();
+        var url = $(e.relatedTarget).data('href');
+        if ($(e.relatedTarget).data('current')) {
+            url = url + '?include=' + $('#group-include-pattern').val() + '&exclude=' + $('#group-exclude-pattern').val();
+        }
         $.getJSON(url, function (data) {
             $('#modal-servers-count').html(data.servers.length);
             for (var index in data.servers) {
