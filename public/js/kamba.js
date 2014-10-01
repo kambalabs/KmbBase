@@ -49,6 +49,7 @@ $(window).load(function () {
         $(this).hide();
         var form = $(this).siblings('.form-inline-editable');
         form.show();
+        form.children('input').focus();
     });
 
     $('.form-inline-editable button[type=reset]').click(function () {
