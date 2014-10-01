@@ -66,22 +66,24 @@ $(window).load(function () {
         e.stopPropagation();
     });
 
-    $('#collapse-all').click(function() {
-        $('.tree li.parent_li > ul > li').hide('fast');
-        $('.tree li.parent_li > span > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
-        $('.tree ul > li > span > dl.parameters').hide('fast');
-        $('.tree li > span > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
-        $('#collapse-all').hide();
-        $('#expand-all').show();
+    $('.collapse-all').click(function() {
+        var tree = $(this).closest('.tree');
+        tree.find('li.parent_li > ul > li').hide('fast');
+        tree.find('li.parent_li > span > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+        tree.find('ul > li > span > dl.parameters').hide('fast');
+        tree.find('li > span > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
+        $(this).hide();
+        $(this).siblings('.expand-all').show();
     });
 
-    $('#expand-all').click(function() {
-        $('.tree li.parent_li > ul > li').show('fast');
-        $('.tree li.parent_li > span > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
-        $('.tree ul > li > span > dl.parameters').show('fast');
-        $('.tree li > span > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
-        $('#expand-all').hide();
-        $('#collapse-all').show();
+    $('.expand-all').click(function() {
+        var tree = $(this).closest('.tree');
+        tree.find('li.parent_li > ul > li').show('fast');
+        tree.find('li.parent_li > span > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
+        tree.find('ul > li > span > dl.parameters').show('fast');
+        tree.find('li > span > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
+        $(this).hide();
+        $(this).siblings('.collapse-all').show();
     });
 
     var dataTablesDefaultSettings = {
@@ -280,7 +282,6 @@ $(window).load(function () {
 
     $('.class-name').click(function () {
         var activeParameters = $('.class-parameters.active');
-        console.log(activeParameters.html());
         if (activeParameters.length) {
             activeParameters.hide();
             activeParameters.removeClass('active');
