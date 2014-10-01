@@ -5,7 +5,7 @@ $(window).load(function () {
     var prefixUriMatch = parser.pathname.match(/(\/env\/[0-9]+)/);
     var prefixUri = prefixUriMatch ? prefixUriMatch[1] : '';
 
-    $('#current-environment').change(function() {
+    $('#current-environment').change(function () {
         var newUrl = '';
         if (prefixUriMatch) {
             var re = new RegExp(prefixUri)
@@ -27,17 +27,41 @@ $(window).load(function () {
 
     /* For IE < 9 */
     var propertyChangeUnbound = false;
-    $('.editable').on('propertychange', function(e) {
+    $('.editable').on('propertychange', function (e) {
         if (e.originalEvent.propertyName == 'value') {
             $($(this).attr('data-target')).show();
         }
     });
-    $('.editable').on('input', function() {
+    $('.editable').on('input', function () {
         if (!propertyChangeUnbound) {
             $(this).unbind('propertychange');
             propertyChangeUnbound = true;
         }
         $($(this).attr('data-target')).show();
+    });
+
+    $('.inline-editable > a').click(function (event) {
+        event.stopPropagation()
+        return false;
+    });
+
+    $('.inline-editable').click(function () {
+        $(this).hide();
+        var form = $(this).siblings('.form-inline-editable');
+        form.show();
+    });
+
+    $('.form-inline-editable button[type=reset]').click(function () {
+        var parent = $(this).closest('.form-inline-editable');
+        parent.hide();
+        parent.siblings('.inline-editable').show();
+    });
+
+    $('.form-inline-editable > input').keyup(function (evt) {
+        if (evt.keyCode == 27) {
+            $(this).closest('.form-inline-editable').find('button[type=reset]').click();
+            $(this).blur();
+        }
     });
 
     $('#actions button[type=reset]').click(function () {
@@ -66,7 +90,7 @@ $(window).load(function () {
         e.stopPropagation();
     });
 
-    $('.collapse-all').click(function() {
+    $('.collapse-all').click(function () {
         var tree = $(this).closest('.tree');
         tree.find('li.parent_li > ul > li').hide('fast');
         tree.find('li.parent_li > span > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
@@ -76,7 +100,7 @@ $(window).load(function () {
         $(this).siblings('.expand-all').show();
     });
 
-    $('.expand-all').click(function() {
+    $('.expand-all').click(function () {
         var tree = $(this).closest('.tree');
         tree.find('li.parent_li > ul > li').show('fast');
         tree.find('li.parent_li > span > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
@@ -134,8 +158,8 @@ $(window).load(function () {
         ]
     }));
 
-    $('#select-all-nodes').click(function() {
-       $('#servers input.select-node').prop('checked', $(this).prop('checked'));
+    $('#select-all-nodes').click(function () {
+        $('#servers input.select-node').prop('checked', $(this).prop('checked'));
     });
 
     $('#fact-filter-submit').click(function () {
@@ -174,14 +198,14 @@ $(window).load(function () {
     $('.chosen-container').width('100%');
     $('.chosen-drop').css({minWidth: '100%', width: 'auto'});
 
-    $('.modal.confirm').on('show.bs.modal', function(e) {
+    $('.modal.confirm').on('show.bs.modal', function (e) {
         $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
         $('.confirm-param1').html($(e.relatedTarget).attr('data-confirm-param1'));
         $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
     });
 
     var updateEnvironment = $('#update-environment');
-    updateEnvironment.on('show.bs.modal', function(e) {
+    updateEnvironment.on('show.bs.modal', function (e) {
         $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
         $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
         $('#current-environment-name').html($(e.relatedTarget).attr('data-full-name'));
@@ -210,7 +234,7 @@ $(window).load(function () {
     }
 
     var manageEnvironmentUsers = $('#manage-environment-users');
-    manageEnvironmentUsers.on('show.bs.modal', function(e) {
+    manageEnvironmentUsers.on('show.bs.modal', function (e) {
         $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
         $('#current-environment-name').html($(e.relatedTarget).attr('data-full-name'));
         var id = $(e.relatedTarget).attr('data-id');
@@ -220,7 +244,7 @@ $(window).load(function () {
         refreshUserSelect(id);
     });
 
-    $('#add-users').click(function() {
+    $('#add-users').click(function () {
         var id = $(this).attr('data-environment-id');
         var users = [];
         $("#environment-user-select option:selected").each(function () {
@@ -230,32 +254,32 @@ $(window).load(function () {
             type: "POST",
             url: prefixUri + "/puppet/environment/" + id + "/add-users",
             data: {'users': users}
-        }).done(function() {
+        }).done(function () {
             environmentUsers.ajax.reload();
             refreshUserSelect(id);
         });
         return false;
     });
 
-    manageEnvironmentUsers.on('click', '.remove-user', function() {
+    manageEnvironmentUsers.on('click', '.remove-user', function () {
         var id = $(this).attr('data-environment-id');
         $.ajax({
             url: prefixUri + "/puppet/environment/" + id + "/user/" + $(this).attr('data-user-id') + "/remove"
-        }).done(function() {
+        }).done(function () {
             environmentUsers.ajax.reload();
             refreshUserSelect(id);
         });
         return false;
     });
 
-    $('#create-environment').on('show.bs.modal', function(e) {
+    $('#create-environment').on('show.bs.modal', function (e) {
         var parentSelect = $('#create-parent-select');
         parentSelect.val($(e.relatedTarget).attr('data-parent-id'));
         parentSelect.trigger('chosen:updated');
     });
 
     var groupServers = $('#group-servers');
-    groupServers.on('show.bs.modal', function(e) {
+    groupServers.on('show.bs.modal', function (e) {
         $('#servers-filter').val('');
         var servers = $(this).find('.list-group');
         servers.empty();
@@ -291,8 +315,9 @@ $(window).load(function () {
         var parameters = $('.class-parameters[data-class-id=' + $(this).attr('data-class-id') + ']');
         parameters.show();
         parameters.addClass('active');
+        return false;
     });
-    $('.class-parameters button.close').click(function() {
+    $('.class-parameters button.close').click(function () {
         $(this).closest('.class-parameters').removeClass('active').hide();
         $('#group-description').show();
     });
