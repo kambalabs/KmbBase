@@ -140,6 +140,10 @@ $(window).load(function () {
             "data": function (data) {
                 data.factName = $('#fact').val();
                 data.factValue = $('#value').val();
+            },
+            "error": function (cause) {
+                console.log('Could not get servers list : ' + cause.statusText);
+                $('#servers_processing').hide();
             }
         },
         "order": [
