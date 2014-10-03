@@ -7,7 +7,7 @@ $(window).load(function () {
 
     $('#current-environment').change(function () {
         var newUrl = '';
-        if (prefixUriMatch) {
+        if (prefixUri) {
             var re = new RegExp(prefixUri)
             newUrl += parser.pathname.replace(re, '/env/' + $('#current-environment').val());
         } else {
@@ -318,6 +318,7 @@ $(window).load(function () {
         parameters.addClass('active');
         return false;
     });
+
     $('.class-parameters button.close').click(function () {
         $(this).closest('.class-parameters').removeClass('active').hide();
         $('#group-description').show();

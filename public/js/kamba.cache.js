@@ -15,7 +15,7 @@ $(window).load(function () {
         });
     };
 
-    refreshExpiredCache();
+    setTimeout(refreshExpiredCache, 5000);
 
     $('#clear-cache').click(function () {
         $.getJSON(prefixUri + '/clear-cache');
