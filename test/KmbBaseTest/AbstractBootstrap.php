@@ -26,6 +26,7 @@ abstract class AbstractBootstrap
     public static function init()
     {
         error_reporting(E_ALL | E_STRICT);
+        \Locale::setDefault('en_US');
 
         static::initAutoloader();
 
