@@ -495,3 +495,11 @@ form#set-environment-form div.input-group {
 form#set-environment-form div.input-group-btn {
     width: auto!important;
 }
+
+.class-parameters {
+    display: none;
+}
+
+.class-parameters.active {
+    display: block;
+}
