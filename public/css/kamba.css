@@ -106,8 +106,9 @@ ul.flash  {
     margin-left: 10px;
 }
 
-.tree dl.parameters {
+.tree .see-more {
     font-size: 90%;
+    margin-bottom: 0;
 }
 
 .tree dd.value::before {
@@ -182,18 +183,14 @@ ul.flash  {
     color:#000
 }
 
-.tree dl.dl-horizontal.parameters {
-    margin-bottom: 0;
-}
-
-.tree dl.dl-horizontal.parameters > dt {
+.tree dl.dl-horizontal > dt {
     margin-left: 18px;
     text-align: left;
     font-style: italic;
     width: 122px;
 }
 
-.tree dl.dl-horizontal.parameters > dd {
+.tree dl.dl-horizontal > dd {
     font-style: italic;
     margin-left: 140px;
     width: 150px;

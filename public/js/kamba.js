@@ -49,7 +49,7 @@ $(window).load(function () {
         $(this).hide();
         var form = $(this).siblings('.form-inline-editable');
         form.show();
-        form.children('input').focus();
+        form.children('.form-control').focus();
     });
 
     $('.form-inline-editable button[type=reset]').click(function () {
@@ -58,7 +58,7 @@ $(window).load(function () {
         parent.siblings('.inline-editable').show();
     });
 
-    $('.form-inline-editable > input').keyup(function (evt) {
+    $('.form-inline-editable > .form-control').keyup(function (evt) {
         if (evt.keyCode == 27) {
             $(this).closest('.form-inline-editable').find('button[type=reset]').click();
             $(this).blur();
@@ -81,12 +81,12 @@ $(window).load(function () {
         e.stopPropagation();
     });
     $('.tree li > span').on('click', 'i.glyphicon-zoom-out', function (e) {
-        $(this).parent().children('dl.parameters').hide('fast');
+        $(this).siblings('.see-more').hide('fast');
         $(this).addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
         e.stopPropagation();
     });
     $('.tree li > span').on('click', 'i.glyphicon-zoom-in', function (e) {
-        $(this).parent().children('dl.parameters').show('fast');
+        $(this).siblings('.see-more').show('fast');
         $(this).addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
         e.stopPropagation();
     });
@@ -95,7 +95,7 @@ $(window).load(function () {
         var tree = $(this).closest('.tree');
         tree.find('li.parent_li > ul > li').hide('fast');
         tree.find('li.parent_li > span > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
-        tree.find('ul > li > span > dl.parameters').hide('fast');
+        tree.find('ul > li > span > .see-more').hide('fast');
         tree.find('li > span > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
         $(this).hide();
         $(this).siblings('.expand-all').show();
@@ -105,7 +105,7 @@ $(window).load(function () {
         var tree = $(this).closest('.tree');
         tree.find('li.parent_li > ul > li').show('fast');
         tree.find('li.parent_li > span > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
-        tree.find('ul > li > span > dl.parameters').show('fast');
+        tree.find('ul > li > span > .see-more').show('fast');
         tree.find('li > span > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
         $(this).hide();
         $(this).siblings('.collapse-all').show();
