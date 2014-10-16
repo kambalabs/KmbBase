@@ -61,6 +61,7 @@ return [
             'environmentSelect' => 'KmbBase\View\Helper\EnvironmentSelect',
             'markdownToHtml'    => 'KmbBase\View\Helper\MarkdownToHtml',
             'printBoolean'      => 'KmbBase\View\Helper\PrintBoolean',
+            'truncate'          => 'KmbBase\View\Helper\Truncate',
         ],
     ],
     'view_helper_config' => [

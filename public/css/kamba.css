@@ -141,7 +141,7 @@ ul.flash  {
     width:25px
 }
 
-.tree li span {
+.tree li .tree-item {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border:1px solid #ccc;
@@ -153,7 +153,7 @@ ul.flash  {
     text-decoration:none
 }
 
-.tree li>span>i {
+.tree li>.tree-item>i {
     cursor:pointer
 }
 
@@ -165,7 +165,7 @@ ul.flash  {
     height:30px
 }
 
-.tree li.parent_li>span:hover, .tree li.parent_li>span:hover+ul li span {
+.tree li.parent_li>.tree-item:hover, .tree li.parent_li>.tree-item:hover+ul li .tree-item {
     background: #f8f8f8;
     border:1px solid #bbb;
     color:#000
