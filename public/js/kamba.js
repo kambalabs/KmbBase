@@ -24,7 +24,6 @@ $(window).load(function () {
         }
     }).disableSelection();
 
-
     /* For IE < 9 */
     var propertyChangeUnbound = false;
     $('.editable').on('propertychange', function (e) {
@@ -70,33 +69,37 @@ $(window).load(function () {
     });
 
     $('.tree li:has(ul)').addClass('parent_li').find(' > span');
-    $('.tree li.parent_li > span').on('click', 'i.glyphicon-minus-sign', function (e) {
+    $('.tree li.parent_li span > a').on('click', 'i.glyphicon-minus-sign', function (e) {
         $(this).closest('li.parent_li').find(' > ul > li').hide('fast');
         $(this).addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
         e.stopPropagation();
+        return false;
     });
-    $('.tree li.parent_li > span').on('click', 'i.glyphicon-plus-sign', function (e) {
+    $('.tree li.parent_li span > a').on('click', 'i.glyphicon-plus-sign', function (e) {
         $(this).closest('li.parent_li').find(' > ul > li').show('fast');
         $(this).addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
         e.stopPropagation();
+        return false;
     });
-    $('.tree li > span').on('click', 'i.glyphicon-zoom-out', function (e) {
+    $('.tree li span > a').on('click', 'i.glyphicon-zoom-out', function (e) {
         $(this).siblings('.see-more').hide('fast');
         $(this).addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
         e.stopPropagation();
+        return false;
     });
-    $('.tree li > span').on('click', 'i.glyphicon-zoom-in', function (e) {
+    $('.tree li span > a').on('click', 'i.glyphicon-zoom-in', function (e) {
         $(this).siblings('.see-more').show('fast');
         $(this).addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
         e.stopPropagation();
+        return false;
     });
 
     $('.collapse-all').click(function () {
         var tree = $(this).closest('.tree');
         tree.find('li.parent_li > ul > li').hide('fast');
-        tree.find('li.parent_li > span > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+        tree.find('li.parent_li > span > a > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
         tree.find('ul > li > span > .see-more').hide('fast');
-        tree.find('li > span > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
+        tree.find('li > span > a > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
         $(this).hide();
         $(this).siblings('.expand-all').show();
     });
@@ -104,9 +107,9 @@ $(window).load(function () {
     $('.expand-all').click(function () {
         var tree = $(this).closest('.tree');
         tree.find('li.parent_li > ul > li').show('fast');
-        tree.find('li.parent_li > span > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
+        tree.find('li.parent_li > span > a > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
         tree.find('ul > li > span > .see-more').show('fast');
-        tree.find('li > span > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
+        tree.find('li > span > a > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
         $(this).hide();
         $(this).siblings('.collapse-all').show();
     });

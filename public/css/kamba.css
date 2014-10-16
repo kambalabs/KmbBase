@@ -30,20 +30,24 @@ button, input, optgroup, select, textarea {
     content: ' *';
 }
 
+.bg-red {
+    background-color: #f2dede;
+}
+
 .lightgrey {
     color: #999;
 }
 
-.darkgrey {
+.grey {
     color: #666;
+}
+
+.darkgrey {
+    color: #333;
 }
 
 .red {
     color: #d9534f;
-}
-
-.bg-red {
-    background-color: #f2dede;
 }
 
 .lightblue {
@@ -60,22 +64,6 @@ button, input, optgroup, select, textarea {
 
 .green {
     color: #5cb85c;
-}
-
-.icon-red {
-    color: #d9534f;
-}
-
-.icon-grey {
-    color: #333;
-}
-
-.icon-blue {
-    color: #5bc0de;
-}
-
-.icon-yellow {
-    color: #f0ad4e;
 }
 
 .modal-backdrop.fade.in {
