@@ -94,7 +94,9 @@ $(window).load(function () {
         return false;
     });
     $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-plus', function (e) {
-        $(this).closest('li.parent_li').find('> ul > form > .new-element').show('fast');
+        var newElement = $(this).closest('li.parent_li').find('> ul > form > .new-element');
+        newElement.show('fast');
+        newElement.children('.form-control').focus();
         e.stopPropagation();
         return false;
     });
