@@ -27,7 +27,7 @@ class Truncate extends AbstractTranslatorHelper
 {
     public function __invoke($text, $length = 100, $options = [])
     {
-        $options = ArrayUtils::merge(['ending' => '...', 'wrap-word' => true], $options);
+        $options = ArrayUtils::merge(['ending' => '...', 'word-wrap' => true], $options);
 
         if (mb_strlen($text) <= $length) {
             return $text;
@@ -35,7 +35,7 @@ class Truncate extends AbstractTranslatorHelper
             $truncate = mb_substr($text, 0, $length - mb_strlen($options['ending']));
         }
 
-        if (!$options['wrap-word']) {
+        if (!$options['word-wrap']) {
             $spacepos = mb_strrpos($truncate, ' ');
             if (isset($spacepos)) {
                 $truncate = mb_substr($truncate, 0, $spacepos);
