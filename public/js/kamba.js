@@ -48,7 +48,7 @@ $(window).load(function () {
         $(this).hide();
         var form = $(this).siblings('.form-inline-editable');
         form.show();
-        form.children('.form-control').focus();
+        form.find('> .input-group > .form-control').focus();
     });
 
     $('.form-inline-editable button[type=reset]').click(function () {
@@ -57,7 +57,7 @@ $(window).load(function () {
         parent.siblings('.inline-editable').show();
     });
 
-    $('.form-inline-editable > .form-control').keyup(function (evt) {
+    $('.form-inline-editable > .input-group > .form-control').keyup(function (evt) {
         if (evt.keyCode == 27) {
             $(this).closest('.form-inline-editable').find('button[type=reset]').click();
             $(this).blur();
@@ -70,13 +70,13 @@ $(window).load(function () {
 
     $('.tree li:has(ul)').addClass('parent_li');
     $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-minus-sign', function (e) {
-        $(this).closest('li.parent_li').find(' > ul > li').hide('fast');
+        $(this).closest('li.parent_li').find(' > ul > .tree-level').hide('fast');
         $(this).addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
         e.stopPropagation();
         return false;
     });
     $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-plus-sign', function (e) {
-        $(this).closest('li.parent_li').find(' > ul > li').show('fast');
+        $(this).closest('li.parent_li').find(' > ul > .tree-level').show('fast');
         $(this).addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
         e.stopPropagation();
         return false;
@@ -94,18 +94,21 @@ $(window).load(function () {
         return false;
     });
     $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-plus', function (e) {
-        var newElement = $(this).closest('li.parent_li').find('> ul > form > .new-element');
+        var newElement = $(this).closest('li.parent_li').find('> ul > .new-element');
+        if (newElement.length == 0) {
+            newElement = $(this).closest('li.parent_li').find('> form > ul > .new-element');
+        }
         newElement.show('fast');
-        newElement.children('.form-control').focus();
+        newElement.find('.form-control').focus();
         e.stopPropagation();
         return false;
     });
 
     $('.collapse-all').click(function () {
         var tree = $(this).closest('.tree');
-        tree.find('li.parent_li > ul > li').hide('fast');
+        tree.find('li.parent_li > ul > .tree-level').hide('fast');
         tree.find('li.parent_li > .tree-item > a > i.glyphicon-minus-sign').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
-        tree.find('ul > li > .tree-item > .see-more').hide('fast');
+        tree.find('ul > .tree-level > .tree-item > .see-more').hide('fast');
         tree.find('li > .tree-item > a > i.glyphicon-zoom-out').addClass('glyphicon-zoom-in').removeClass('glyphicon-zoom-out');
         $(this).hide();
         $(this).siblings('.expand-all').show();
@@ -113,9 +116,9 @@ $(window).load(function () {
 
     $('.expand-all').click(function () {
         var tree = $(this).closest('.tree');
-        tree.find('li.parent_li > ul > li').show('fast');
+        tree.find('li.parent_li > ul > .tree-level').show('fast');
         tree.find('li.parent_li > .tree-item > a > i.glyphicon-plus-sign').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
-        tree.find('ul > li > .tree-item > .see-more').show('fast');
+        tree.find('ul > .tree-level > .tree-item > .see-more').show('fast');
         tree.find('li > .tree-item > a > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
         $(this).hide();
         $(this).siblings('.collapse-all').show();
