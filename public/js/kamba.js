@@ -70,13 +70,21 @@ $(window).load(function () {
 
     $('.tree li:has(ul)').addClass('parent_li');
     $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-minus-sign', function (e) {
-        $(this).closest('li.parent_li').find(' > ul > .tree-level').hide('fast');
+        var element = $(this).closest('li.parent_li').find('> ul > .tree-level');
+        if (element.length == 0) {
+            element = $(this).closest('li.parent_li').find('> form > ul > .tree-level');
+        }
+        element.hide('fast');
         $(this).addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
         e.stopPropagation();
         return false;
     });
     $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-plus-sign', function (e) {
-        $(this).closest('li.parent_li').find(' > ul > .tree-level').show('fast');
+        var element = $(this).closest('li.parent_li').find('> ul > .tree-level');
+        if (element.length == 0) {
+            element = $(this).closest('li.parent_li').find('> form > ul > .tree-level');
+        }
+        element.show('fast');
         $(this).addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
         e.stopPropagation();
         return false;
