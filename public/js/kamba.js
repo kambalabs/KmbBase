@@ -39,14 +39,10 @@ $(window).load(function () {
         $($(this).attr('data-target')).show();
     });
 
-    $('.inline-editable > a').click(function (event) {
-        event.stopPropagation()
-        return false;
-    });
-
-    $('.inline-editable').click(function () {
-        $(this).hide();
-        var form = $(this).siblings('.form-inline-editable');
+    $('.inline-editable > .inline-editable-clickable').click(function () {
+        var parent = $(this).parent();
+        parent.hide();
+        var form = parent.siblings('.form-inline-editable');
         form.show();
         form.find('> .input-group > .form-control').focus();
     });
@@ -101,13 +97,15 @@ $(window).load(function () {
         e.stopPropagation();
         return false;
     });
-    $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-plus', function (e) {
+    $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-plus.create-element', function (e) {
         var newElement = $(this).closest('li.parent_li').find('> ul > .new-element');
         if (newElement.length == 0) {
             newElement = $(this).closest('li.parent_li').find('> form > ul > .new-element');
         }
         newElement.show('fast');
-        newElement.find('.form-control').focus();
+        var formControl = newElement.find('.form-control');
+        formControl.prop('disabled', false);;
+        formControl.focus();
         e.stopPropagation();
         return false;
     });
@@ -230,8 +228,18 @@ $(window).load(function () {
         $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
     });
 
-    var updateEnvironment = $('#update-environment');
-    updateEnvironment.on('show.bs.modal', function (e) {
+    $('#confirm-remove-value').on('show.bs.modal', function (e) {
+        var element = $(e.relatedTarget);
+        $('.confirm-text').html(element.attr('data-confirm-text'));
+        $(this).find('.danger').click(function() {
+            var treeLevel = element.closest('.tree-level');
+            var form = treeLevel.closest('form.values-form');
+            treeLevel.remove();
+            form.submit();
+        });
+    });
+
+    $('#update-environment').on('show.bs.modal', function (e) {
         $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
         $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
         $('#current-environment-name').html($(e.relatedTarget).attr('data-full-name'));
