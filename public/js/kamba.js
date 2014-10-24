@@ -104,11 +104,14 @@ $(window).load(function () {
         }
         newElement.show('fast');
         var formControl = newElement.find('.form-control');
-        formControl.prop('disabled', false);;
+        formControl.prop('disabled', false);
         formControl.focus();
         e.stopPropagation();
         return false;
     });
+    $('.values-form').on('reset', function() {
+        $(this).find('.new-element .form-control').prop('disabled', true);
+    })
 
     $('.collapse-all').click(function () {
         var tree = $(this).closest('.tree');
@@ -128,6 +131,16 @@ $(window).load(function () {
         tree.find('li > .tree-item > a > i.glyphicon-zoom-in').addClass('glyphicon-zoom-out').removeClass('glyphicon-zoom-in');
         $(this).hide();
         $(this).siblings('.collapse-all').show();
+    });
+
+    $('.add-parameter').click(function(e) {
+        var newElement = $(this).closest('.panel-heading').siblings('.panel-body').children('.tree').find('> ul > .new-element');
+        newElement.show('fast');
+        var formControl = newElement.find('.form-control');
+        formControl.prop('disabled', false);;
+        formControl.focus();
+        e.stopPropagation();
+        return false;
     });
 
     var dataTablesDefaultSettings = {
@@ -228,7 +241,8 @@ $(window).load(function () {
         $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
     });
 
-    $('#confirm-remove-value').on('show.bs.modal', function (e) {
+    var confirmRemoveValue = $('#confirm-remove-value');
+    confirmRemoveValue.on('show.bs.modal', function (e) {
         var element = $(e.relatedTarget);
         $('.confirm-text').html(element.attr('data-confirm-text'));
         $(this).find('.danger').click(function() {
@@ -237,6 +251,9 @@ $(window).load(function () {
             treeLevel.remove();
             form.submit();
         });
+    });
+    confirmRemoveValue.on('hide.bs.modal', function () {
+        $(this).find('.danger').unbind('click');
     });
 
     $('#update-environment').on('show.bs.modal', function (e) {
