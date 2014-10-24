@@ -20,7 +20,11 @@ $(window).load(function () {
     $('#groups > tbody').sortable({
         update: function (event, ui) {
             var data = $(this).sortable('serialize');
-            $.post(prefixUri + '/puppet/groups/update', data);
+            $.post(prefixUri + '/puppet/groups/update', data).done(function(data) {
+                if (data.error) {
+                    location.reload(true);
+                }
+            });
         }
     }).disableSelection();
 
