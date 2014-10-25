@@ -44,6 +44,6 @@ class PrintBoolean extends AbstractTranslatorHelper
             return $boolean ? 1 : 0;
         }
 
-        return $boolean ? $translator->translate('true') : $translator->translate('false');
+        return $boolean ? 'true' : 'false';
     }
 }
