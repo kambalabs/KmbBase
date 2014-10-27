@@ -72,7 +72,7 @@
                             <a tabindex="30" href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Puppet') ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'reports', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Day reports') ?></a></li>
-                                <?php if ($this->isGranted('manageEnv')): ?>
+                                <?php if ($this->hasRole('admin')): ?>
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'environments', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Environments') ?></a></li>
                                 <?php endif ?>
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'modules', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Modules') ?></a></li>
