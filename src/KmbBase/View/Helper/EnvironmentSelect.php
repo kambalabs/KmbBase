@@ -24,7 +24,7 @@ use Zend\View\Helper\AbstractHelper;
 
 class EnvironmentSelect extends AbstractHelper
 {
-    public function __invoke($permission = 'manageEnvChildren')
+    public function __invoke($permission = 'manageEnv')
     {
         return '';
     }
