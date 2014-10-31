@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 00:44+0100\n"
-"PO-Revision-Date: 2014-09-29 00:44+0100\n"
+"POT-Creation-Date: 2014-10-29 02:22+0100\n"
+"PO-Revision-Date: 2014-10-29 02:22+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: \n"
@@ -24,14 +24,6 @@ msgstr "oui"
 #: ../src/KmbBase/View/Helper/PrintBoolean.php:40
 msgid "no"
 msgstr "non"
-
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:47
-msgid "true"
-msgstr "vrai"
-
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:47
-msgid "false"
-msgstr "faux"
 
 #: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
@@ -150,6 +142,16 @@ msgstr "Modules"
 msgid "Groups"
 msgstr "Groupes"
 
+#: ../view/layout/layout.phtml:80
+msgid "Changes"
+msgstr "Changements"
+
+#~ msgid "true"
+#~ msgstr "vrai"
+
+#~ msgid "false"
+#~ msgstr "faux"
+
 #~ msgid "Classes"
 #~ msgstr "Classes"
 
@@ -168,12 +170,6 @@ msgstr "Groupes"
 #~ msgid_plural "skips"
 #~ msgstr[0] "skip"
 #~ msgstr[1] "skips"
-
-#~ msgid "change"
-
-#~ msgid_plural "changes"
-#~ msgstr[0] "changement"
-#~ msgstr[1] "changements"
 
 #~ msgid "failure"
 

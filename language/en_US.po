@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 00:44+0100\n"
-"PO-Revision-Date: 2014-09-29 00:44+0100\n"
+"POT-Creation-Date: 2014-10-29 02:22+0100\n"
+"PO-Revision-Date: 2014-10-29 02:22+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: \n"
@@ -23,14 +23,6 @@ msgstr ""
 
 #: ../src/KmbBase/View/Helper/PrintBoolean.php:40
 msgid "no"
-msgstr ""
-
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:47
-msgid "true"
-msgstr ""
-
-#: ../src/KmbBase/View/Helper/PrintBoolean.php:47
-msgid "false"
 msgstr ""
 
 #: ../view/error/404.phtml:1
@@ -148,5 +140,9 @@ msgstr ""
 
 #: ../view/layout/layout.phtml:79
 msgid "Groups"
+msgstr ""
+
+#: ../view/layout/layout.phtml:80
+msgid "Changes"
 msgstr ""
 

@@ -25,6 +25,11 @@ button, input, optgroup, select, textarea {
     font-style: italic;
 }
 
+.comment {
+    color: #999;
+    font-size: 85%;
+}
+
 .required::after {
     color: #d9534f;
     content: ' *';
