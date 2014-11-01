@@ -230,7 +230,13 @@ $(window).load(function () {
     $('#reports').dataTable($.extend({}, dataTablesDefaultSettings, {
         "processing": true,
         "serverSide": true,
-        "ajax": window.location
+        "ajax": {
+            "url": window.location,
+            "error": function (cause) {
+                console.log('Could not get reports list : ' + cause.statusText);
+                $('#reports_processing').hide();
+            }
+        }
     }));
 
     $('[data-rel=chosen]').chosen({
