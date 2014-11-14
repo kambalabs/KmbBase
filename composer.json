@@ -22,7 +22,8 @@
         "goten4/gtn-persist-base": "dev-master",
         "goten4/gtn-persist-zend-db": "dev-master",
         "rwoverdijk/assetmanager": "1.*",
-        "michelf/php-markdown": "1.4.*"
+        "michelf/php-markdown": "1.4.*",
+        "phpspec/php-diff": "1.0.2"
     },
     "require-dev": {
         "phpunit/PHPUnit": "3.7.*",
