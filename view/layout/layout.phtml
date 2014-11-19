@@ -80,6 +80,13 @@
                                 <li><a href="<?php echo $this->url('puppet', ['controller' => 'revisions', 'action' => 'index'], [], true) ?>"><?php echo $this->translate('Changes') ?></a></li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a tabindex="30" href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Mcollective') ?> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a tabindex="20" href="<?php echo $this->url('mcollective', ['action' => 'show'], [], true) ?>"><?php echo $this->translate('Actions') ?></a></li>
+                                <li><a tabindex="20" href="<?php echo $this->url('mcollective', ['action' => 'history'], [], true) ?>"><?php echo $this->translate('Historique') ?></a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
