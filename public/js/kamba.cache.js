@@ -3,7 +3,7 @@ $(window).load(function () {
     var prefixUri = match ? match[1] : '';
 
     var refreshExpiredCache = function () {
-        $.getJSON(prefixUri + '/refresh-expired-cache', function (data) {
+        $.getJSON(prefixUri + '/cache/refresh-expired', function (data) {
             if (data.refresh) {
                 $.gritter.add({
                     title: "Mise à jour du cache",
@@ -18,6 +18,6 @@ $(window).load(function () {
     setTimeout(refreshExpiredCache, 5000);
 
     $('#clear-cache').click(function () {
-        $.getJSON(prefixUri + '/clear-cache');
+        $.getJSON(prefixUri + '/cache/clear');
     });
 });
