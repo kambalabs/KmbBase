@@ -605,7 +605,7 @@ form#set-environment-form div.input-group-btn {
     background: #e99;
 }
 
-.signature {
+.gritter-item p.signature {
     text-align: right;
     margin-top: 5px;
 }
