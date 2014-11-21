@@ -496,7 +496,7 @@ form#set-environment-form div.input-group-btn {
 
 .DifferencesLegend {
     display: inline-block;
-    width: 40px;
+    width: 20px;
 }
 
 .DifferencesLegend.ChangeInsert {
@@ -603,4 +603,63 @@ form#set-environment-form div.input-group-btn {
 
 .DifferencesInline .ChangeReplace del {
     background: #e99;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.gritter-success .gritter-item {
+    background-color: #dff0d8;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dff0d8', endColorstr='#dff0d8',GradientType=0 ); /* IE6-8 */
+    color: #3c763d !important;
+    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+}
+
+.gritter-success .gritter-close {
+    background: url(../images/close-button.png);
+}
+
+.gritter-success .gritter-title {
+    color: #3c763d !important;
+    text-shadow: none !important;
+}
+
+.gritter-warning .gritter-item {
+    background-color: #fcf8e3;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf8e3', endColorstr='#fcf8e3',GradientType=0 ); /* IE6-8 */
+    color: #8a6d3b !important;
+    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+}
+
+.gritter-warning .gritter-close {
+    background: url(../images/close-button.png);
+}
+
+.gritter-warning .gritter-title {
+    color: #8a6d3b !important;
+    text-shadow: none !important;
+}
+
+.gritter-danger .gritter-item {
+    background-color: #f2dede;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2dede', endColorstr='#f2dede',GradientType=0 ); /* IE6-8 */
+    color: #a94442 !important;
+    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.25);
+}
+
+.gritter-danger .gritter-close {
+    background: url(../images/close-button.png);
+}
+
+.gritter-danger .gritter-title {
+    color: #a94442 !important;
+    text-shadow: none !important;
 }

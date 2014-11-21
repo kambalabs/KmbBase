@@ -26,6 +26,10 @@
 
     </head>
     <body>
+        <?php echo $this->flashMessenger()->render('success', ['gritter-success']) ?>
+        <?php echo $this->flashMessenger()->render('warning', ['gritter-warning']) ?>
+        <?php echo $this->flashMessenger()->render('error', ['gritter-danger']) ?>
+        <?php echo $this->globalMessenger()->render() ?>
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">

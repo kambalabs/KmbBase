@@ -37,6 +37,9 @@ return [
         ],
     ],
     'controller_plugins' => [
+        'invokables' => [
+            'globalMessenger' => 'KmbBase\Controller\Plugin\GlobalMessenger',
+        ],
         'factories' => [
             'translate' => 'KmbBase\Controller\Plugin\TranslateFactory',
         ],
@@ -63,12 +66,15 @@ return [
             'printBoolean'      => 'KmbBase\View\Helper\PrintBoolean',
             'truncate'          => 'KmbBase\View\Helper\Truncate',
         ],
+        'factories' => [
+            'globalMessenger'   => 'KmbBase\View\Helper\GlobalMessengerFactory',
+        ],
     ],
     'view_helper_config' => [
         'flashmessenger' => [
-            'message_open_format'      => '<ul class="flash"><li%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>',
+            'message_open_format'      => '<ul class="flash" style="display: none"><li%s>',
             'message_close_string'     => '</li></ul>',
-            'message_separator_string' => '</li><li%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'
+            'message_separator_string' => '</li><li%s>'
         ],
     ],
     'asset_manager' => [

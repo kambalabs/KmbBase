@@ -28,6 +28,24 @@ $(window).load(function () {
         }
     }).disableSelection();
 
+    var flashMessages = $('ul.flash');
+    if (flashMessages.length > 0) {
+        flashMessages.children('li').each(function() {
+            var h4 = $(this).children('h4');
+            var title = null;
+            if (h4.length > 0) {
+                title = h4.text();
+                h4.remove();
+            }
+            $.gritter.add({
+                title: title,
+                text: $(this).html(),
+                sticky: true,
+                class_name: $(this).attr('class')
+            });
+        });
+    }
+
     /* For IE < 9 */
     var propertyChangeUnbound = false;
     $('.editable').on('propertychange', function (e) {
