@@ -20,8 +20,8 @@
  */
 namespace KmbBase\View\Helper;
 
-use Zend\I18n\View\Helper\AbstractTranslatorHelper;
 use KmbBase\Controller\Plugin\GlobalMessenger as PluginGlobalMessenger;
+use Zend\I18n\View\Helper\AbstractTranslatorHelper;
 
 class GlobalMessenger extends AbstractTranslatorHelper
 {
@@ -40,16 +40,16 @@ class GlobalMessenger extends AbstractTranslatorHelper
     public function render()
     {
         $globalMessenger = $this->getPluginGlobalMessenger();
-        $markup  = $this->renderMessages('gritter-success', $globalMessenger->getSuccessMessages()) . PHP_EOL;
-        $markup .= $this->renderMessages('gritter-warning', $globalMessenger->getWarningMessages()) . PHP_EOL;
-        $markup .= $this->renderMessages('gritter-danger',  $globalMessenger->getDangerMessages())  . PHP_EOL;
+        $markup = $this->renderMessages('gritter-success', $globalMessenger->getSuccessMessages()) ;
+        $markup .= $this->renderMessages('gritter-warning', $globalMessenger->getWarningMessages());
+        $markup .= $this->renderMessages('gritter-danger', $globalMessenger->getDangerMessages());
         return $markup;
     }
 
-    protected  function renderMessages($class, $messages)
+    protected function renderMessages($class, $messages)
     {
         if (!empty($messages)) {
-            $markup  = sprintf($this->getMessageOpenFormat(), ' class="' . $class . '"');
+            $markup = sprintf($this->getMessageOpenFormat(), ' class="' . $class . '"');
             $markup .= implode(sprintf($this->getMessageSeparatorString(), ' class="' . $class . '"'), $messages);
             $markup .= $this->getMessageCloseString();
             return $markup;
