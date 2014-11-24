@@ -289,6 +289,11 @@ $(window).load(function () {
         $(this).find('.release-warning').html($(e.relatedTarget).data('release-warning'));
     });
 
+    $('#import').on('show.bs.modal', function (e) {
+        $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
+        $(this).find('.release-warning').html($(e.relatedTarget).data('release-warning'));
+    });
+
     $('#update-environment').on('show.bs.modal', function (e) {
         $(this).find('form').attr('action', $(e.relatedTarget).data('href'));
         $('#update-environment-name').val($(e.relatedTarget).attr('data-name'));
