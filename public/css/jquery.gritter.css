@@ -35,7 +35,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#cc000000',GradientType=0 ); /* IE6-8 */
 	color:#fff;
 	padding:15px;
-	font-size: 11px;
+	font-size: 13px;
 	-webkit-border-radius: 4px !important;
        -moz-border-radius: 4px !important;
 	        border-radius: 4px !important;
@@ -62,11 +62,11 @@
 	height:12px;
 	background: url(../images/close-button-white.png);
 	opacity: .6;
-  
+
 }
 
 .gritter-title {
-	font-size:14px;
+	font-size:15px;
 	font-weight:bold;
 	padding:0 0 7px 0;
 	display:block;
