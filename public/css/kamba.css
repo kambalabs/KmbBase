@@ -663,3 +663,7 @@ form#set-environment-form div.input-group-btn {
     color: #a94442 !important;
     text-shadow: none !important;
 }
+
+.table-striped > tbody > tr.selected-class > td {
+    background-color: #dfd;
+}

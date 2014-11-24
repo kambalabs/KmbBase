@@ -394,6 +394,9 @@ $(window).load(function () {
     })
 
     $('.class-name').click(function () {
+        $('tr.selected-class').removeClass('selected-class');
+        $(this).closest('tr').addClass('selected-class');
+
         var activeParameters = $('.class-parameters.active');
         if (activeParameters.length) {
             activeParameters.hide();
