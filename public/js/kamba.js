@@ -5,29 +5,6 @@ $(window).load(function () {
     var prefixUriMatch = parser.pathname.match(/(\/env\/[0-9]+)/);
     var prefixUri = prefixUriMatch ? prefixUriMatch[1] : '';
 
-    $('#current-environment').change(function () {
-        var newUrl = '';
-        if (prefixUri) {
-            var re = new RegExp(prefixUri)
-            newUrl += parser.pathname.replace(re, '/env/' + $('#current-environment').val());
-        } else {
-            newUrl += '/env/' + $('#current-environment').val() + parser.pathname;
-        }
-        newUrl += parser.search + parser.hash;
-        location.href = newUrl;
-    });
-
-    $('#groups > tbody').sortable({
-        update: function (event, ui) {
-            var data = $(this).sortable('serialize');
-            $.post(prefixUri + '/puppet/groups/update', data).done(function(data) {
-                if (data.error) {
-                    location.reload(true);
-                }
-            });
-        }
-    }).disableSelection();
-
     var flashMessages = $('ul.flash');
     if (flashMessages.length > 0) {
         flashMessages.children('li').each(function() {
@@ -82,10 +59,6 @@ $(window).load(function () {
         }
     });
 
-    $('#actions button[type=reset]').click(function () {
-        $('#actions').hide();
-    });
-
     $('.tree li:has(ul)').addClass('parent_li');
     $('.tree li.parent_li .tree-item > a').on('click', 'i.glyphicon-minus-sign', function (e) {
         var element = $(this).closest('li.parent_li').find('> ul > .tree-level');
@@ -131,9 +104,6 @@ $(window).load(function () {
         e.stopPropagation();
         return false;
     });
-    $('.values-form').on('reset', function() {
-        $(this).find('.new-element .form-control').prop('disabled', true);
-    })
 
     $('.collapse-all').click(function () {
         var tree = $(this).closest('.tree');
@@ -155,97 +125,7 @@ $(window).load(function () {
         $(this).siblings('.collapse-all').show();
     });
 
-    $('.add-parameter').click(function(e) {
-        var newElement = $(this).closest('.panel-heading').siblings('.panel-body').children('.tree').find('> ul > .new-element');
-        newElement.show('fast');
-        var formControl = newElement.find('.form-control');
-        formControl.prop('disabled', false);;
-        formControl.focus();
-        e.stopPropagation();
-        return false;
-    });
-
-    var dataTablesDefaultSettings = {
-        "sPaginationType": "bootstrap",
-        "bProcessing": true,
-        "bAutoWidth": false,
-        "aaSorting": [],
-        "oLanguage": {
-            "sUrl": "/js/dataTables.french.txt"
-        },
-        "fnDrawCallback": function () {
-            $('a', this.fnGetNodes()).each(function () {
-                $(this).tooltip({
-                    "placement": $(this).attr('data-placement'),
-                    delay: {
-                        show: 400,
-                        hide: 200
-                    }
-                });
-            });
-        }
-    };
-
-    var serversTable = $('#servers').dataTable($.extend({}, dataTablesDefaultSettings, {
-        "processing": true,
-        "serverSide": true,
-        "ajax": {
-            "url": window.location,
-            "data": function (data) {
-                data.factName = $('#fact').val();
-                data.factValue = $('#value').val();
-            },
-            "error": function (cause) {
-                console.log('Could not get servers list : ' + cause.statusText);
-                $('#servers_processing').hide();
-            }
-        },
-        "order": [
-            [ 1, "asc" ]
-        ],
-        "aoColumns": [
-            { "bSortable": false },
-            { "orderSequence": [ "asc", "desc" ] },
-            { "bSortable": false },
-            { "bSortable": false },
-            { "bSortable": false },
-            { "bSortable": false },
-            { "bSortable": false },
-            { "bSortable": false },
-            { "bSortable": false },
-            null
-        ]
-    }));
-
-    $('#select-all-nodes').click(function () {
-        $('#servers input.select-node').prop('checked', $(this).prop('checked'));
-    });
-
-    $('#fact-filter-submit').click(function () {
-        if ($('#fact').val() == 'default') {
-            $('#fact').closest('.form-group')
-                .addClass('has-error')
-                .delay(2000).queue(function () {
-                    $(this).removeClass("has-error").dequeue();
-                });
-            return false;
-        }
-        serversTable.fnDraw();
-        return false;
-    });
-
-    $('#fact-filter-reset').click(function () {
-        $('#fact').val('').trigger('chosen:updated');
-        $('#value').val('');
-        serversTable.fnDraw();
-        return false;
-    });
-
-    $('#facts').dataTable($.extend({}, dataTablesDefaultSettings, {
-        "sAjaxSource": document.URL.replace(/(\/show)?(\?.*)?$/gm, '') + '/facts'
-    }));
-
-    $('#reports').dataTable($.extend({}, dataTablesDefaultSettings, {
+    $('#reports').dataTable($.extend({}, DATATABLES_DEFAULT_SETTING, {
         "processing": true,
         "serverSide": true,
         "ajax": {
@@ -304,7 +184,7 @@ $(window).load(function () {
         parentSelect.trigger('chosen:updated');
     });
 
-    var environmentUsers = $('#environment-users').DataTable($.extend({}, dataTablesDefaultSettings, {
+    var environmentUsers = $('#environment-users').DataTable($.extend({}, DATATABLES_DEFAULT_SETTING, {
         "lengthChange": false,
         "displayLength": 5
     }));
