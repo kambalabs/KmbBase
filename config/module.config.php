@@ -1,65 +1,11 @@
 <?php
 return [
-    'navigation' => [
-        'default' => [
-            [
-                'label' => 'Dashboard',
-                'route' => 'dashboard',
-                'useRouteMatch' => true,
-                'tabindex' => 20,
-            ],
-            [
-                'label' => 'Servers',
-                'route' => 'servers',
-                'useRouteMatch' => true,
-                'tabindex' => 40,
-            ],
-            [
-                'label' => 'Puppet',
-                'route' => 'puppet',
-                'tabindex' => 60,
-                'pages' => [
-                    [
-                        'label' => 'Day reports',
-                        'route' => 'puppet',
-                        'controller' => 'reports',
-                        'action' => 'index',
-                        'useRouteMatch' => true,
-                        'tabindex' => 61,
-                    ],
-                    [
-                        'label' => 'Environments',
-                        'route' => 'puppet',
-                        'controller' => 'environments',
-                        'action' => 'index',
-                        'useRouteMatch' => true,
-                        'roles' => 'admin',
-                        'tabindex' => 61,
-                    ],
-                    [
-                        'label' => 'Modules',
-                        'route' => 'puppet',
-                        'controller' => 'modules',
-                        'action' => 'index',
-                        'useRouteMatch' => true,
-                        'tabindex' => 62,
-                    ],
-                    [
-                        'label' => 'Groups',
-                        'route' => 'puppet',
-                        'controller' => 'groups',
-                        'action' => 'index',
-                        'useRouteMatch' => true,
-                        'tabindex' => 63,
-                    ],
-                    [
-                        'label' => 'Changes',
-                        'route' => 'puppet',
-                        'controller' => 'revisions',
-                        'action' => 'index',
-                        'useRouteMatch' => true,
-                        'tabindex' => 64,
-                    ],
+    'router' => [
+        'routes' => [
+            'index' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/',
                 ],
             ],
         ],
