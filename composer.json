@@ -18,6 +18,7 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "2.3.*",
+        "symfony/yaml": "3.0.*@dev",
         "goten4/gtn-datatables": "dev-master",
         "goten4/gtn-persist-base": "dev-master",
         "goten4/gtn-persist-zend-db": "dev-master",
