@@ -50,6 +50,10 @@ $(window).load(function () {
         $($(this).attr('data-target')).show();
     });
 
+    $('.editable-actions button[type=reset]').click(function () {
+        $(this).closest('.editable-actions').hide();
+    });
+
     $('.inline-editable > .inline-editable-clickable').click(function () {
         var parent = $(this).parent();
         parent.hide();
