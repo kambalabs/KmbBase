@@ -4,7 +4,7 @@ var DATATABLES_DEFAULT_SETTING = {
     "autoWidth": false,
     "order": [],
     "language": {
-        "url": "/js/dataTables.txt"
+        "url": "/js/dataTables.json"
     },
     "drawCallback": function () {
         $('a', this.fnGetNodes()).each(function () {

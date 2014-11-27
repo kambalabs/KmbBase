@@ -1,7 +1,7 @@
 {
     "sProcessing":     "Traitement en cours...",
     "sSearch":         "Rechercher&nbsp;:&nbsp;",
-    "sEmptyTable":     "Aucune donnée disponible dans le tableau",
+    "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
     "sInfo":           "&Eacute;lement(s) _START_ &agrave; _END_ sur _TOTAL_",
     "sInfoEmpty":      "&Eacute;lement 0 &agrave; 0 sur 0",
     "sInfoFiltered":   "",
@@ -18,6 +18,6 @@
     },
     "oAria": {
         "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
-        "sSortDescending": ": activer pour trier la colonne par ordre décroissant"
+        "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
     }
 }
