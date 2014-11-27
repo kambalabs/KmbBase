@@ -12,6 +12,7 @@
 
         <?php echo $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/favicon.ico'])
                         ->prependStylesheet($this->basePath() . '/css/kamba.css')
+                        ->prependStylesheet($this->basePath() . '/css/nprogress.css')
                         ->prependStylesheet($this->basePath() . '/css/chosen.min.css')
                         ->prependStylesheet($this->basePath() . '/css/chosen-bootstrap.css')
                         ->prependStylesheet($this->basePath() . '/css/jquery.gritter.css')
@@ -79,6 +80,7 @@
         <?php echo $this->inlineScript()
             ->prependFile($this->basePath() . '/js/kmb.constants.js')
             ->prependFile($this->basePath() . '/js/kamba.js')
+            ->prependFile($this->basePath() . '/js/nprogress.js')
             ->prependFile($this->basePath() . '/js/jquery.flot.stack.js')
             ->prependFile($this->basePath() . '/js/jquery.flot.js')
             ->prependFile($this->basePath() . '/js/jquery.chosen.min.js')
