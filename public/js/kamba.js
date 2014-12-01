@@ -49,6 +49,13 @@ $(window).load(function () {
         }
         $($(this).attr('data-target')).show();
     });
+    $('.editable').on('change', function () {
+        if (!propertyChangeUnbound) {
+            $(this).unbind('propertychange');
+            propertyChangeUnbound = true;
+        }
+        $($(this).attr('data-target')).show();
+    });
 
     $('.editable-actions button[type=reset]').click(function () {
         $(this).closest('.editable-actions').hide();
