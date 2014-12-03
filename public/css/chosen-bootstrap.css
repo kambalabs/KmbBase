@@ -176,3 +176,8 @@ select.form-control + .chosen-container .chosen-results li.group-result:hover {
     background: #f5f5f5;
     color: inherit;
 }
+
+select.form-control.open-up + .chosen-container .chosen-drop {
+    bottom: 36px;
+    top: auto !important;
+}
