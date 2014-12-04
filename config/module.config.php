@@ -14,8 +14,8 @@ return [
         'invokables' => [
             'DateTimeFactory' => 'KmbBase\DateTimeFactory',
         ],
-        'factories' => [
-            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+        'abstract_factories' => [
+            'KmbBase\Factory\NavigationAbstractFactory',
         ],
     ],
     'translator' => [
@@ -59,6 +59,7 @@ return [
         ],
         'factories' => [
             'globalMessenger'   => 'KmbBase\View\Helper\GlobalMessengerFactory',
+            'widget'            => 'KmbBase\View\Helper\WidgetFactory',
         ],
     ],
     'view_helper_config' => [
