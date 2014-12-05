@@ -34,6 +34,7 @@ class Widget extends AbstractHelper
      */
     public function render($name, $model = [])
     {
+        $this->view->partial('coucou', $model);
         $content = '';
         foreach ($this->getPartials($name) as $partial) {
             $content .= $this->view->partial($partial, $model);
