@@ -27,6 +27,7 @@ abstract class AbstractBootstrap
     {
         error_reporting(E_ALL | E_STRICT);
         \Locale::setDefault('en_US');
+        date_default_timezone_set('Europe/Paris');
 
         static::initAutoloader();
 
