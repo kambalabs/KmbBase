@@ -2,19 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-27 15:17+0100\n"
-"PO-Revision-Date: 2014-11-27 15:17+0100\n"
+"POT-Creation-Date: 2015-01-22 12:42+0100\n"
+"PO-Revision-Date: 2015-01-23 12:41+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
-"Language: \n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: translate;translatePlural:1,2\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-Country: FRANCE\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../src/KmbBase/View/Helper/PrintBoolean.php:40
@@ -34,7 +33,8 @@ msgid "The requested controller was unable to dispatch the request."
 msgstr ""
 
 #: ../view/error/404.phtml:13
-msgid "The requested controller could not be mapped to an existing controller class."
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
 msgstr ""
 
 #: ../view/error/404.phtml:16
@@ -58,39 +58,30 @@ msgstr ""
 msgid "resolves to %s"
 msgstr ""
 
-#: ../view/error/404.phtml:53
-#: ../view/error/index.phtml:8
+#: ../view/error/404.phtml:53 ../view/error/index.phtml:8
 msgid "Additional information"
 msgstr ""
 
-#: ../view/error/404.phtml:56
-#: ../view/error/404.phtml:80
-#: ../view/error/index.phtml:11
-#: ../view/error/index.phtml:35
+#: ../view/error/404.phtml:56 ../view/error/404.phtml:80
+#: ../view/error/index.phtml:11 ../view/error/index.phtml:35
 msgid "File"
 msgstr ""
 
-#: ../view/error/404.phtml:60
-#: ../view/error/404.phtml:84
-#: ../view/error/index.phtml:15
-#: ../view/error/index.phtml:39
+#: ../view/error/404.phtml:60 ../view/error/404.phtml:84
+#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
 msgid "Message"
 msgstr ""
 
-#: ../view/error/404.phtml:64
-#: ../view/error/404.phtml:88
-#: ../view/error/index.phtml:19
-#: ../view/error/index.phtml:43
+#: ../view/error/404.phtml:64 ../view/error/404.phtml:88
+#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
 msgid "Stack trace"
 msgstr ""
 
-#: ../view/error/404.phtml:74
-#: ../view/error/index.phtml:29
+#: ../view/error/404.phtml:74 ../view/error/index.phtml:29
 msgid "Previous exceptions"
 msgstr ""
 
-#: ../view/error/404.phtml:103
-#: ../view/error/index.phtml:58
+#: ../view/error/404.phtml:103 ../view/error/index.phtml:58
 msgid "No Exception available"
 msgstr ""
 
@@ -113,4 +104,3 @@ msgstr ""
 #: ../view/layout/layout.phtml:66
 msgid "Signout"
 msgstr ""
-

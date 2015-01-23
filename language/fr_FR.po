@@ -2,19 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-27 15:17+0100\n"
-"PO-Revision-Date: 2014-11-27 15:17+0100\n"
+"POT-Creation-Date: 2015-01-22 12:42+0100\n"
+"PO-Revision-Date: 2015-01-23 12:42+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
-"Language: \n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: translate;translatePlural:1,2\n"
-"X-Poedit-Language: French\n"
-"X-Poedit-Country: FRANCE\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../src/KmbBase/View/Helper/PrintBoolean.php:40
@@ -34,8 +33,10 @@ msgid "The requested controller was unable to dispatch the request."
 msgstr "Le contrôleur demandé n'a pas pu dispatcher la requête."
 
 #: ../view/error/404.phtml:13
-msgid "The requested controller could not be mapped to an existing controller class."
-msgstr "Le contrôleur demandé ne correspond pas à une classe existante de contrôleur."
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr ""
+"Le contrôleur demandé ne correspond pas à une classe existante de contrôleur."
 
 #: ../view/error/404.phtml:16
 msgid "The requested controller was not dispatchable."
@@ -47,7 +48,8 @@ msgstr "L'URL demandée n'a pas pu trouver de route correspondante."
 
 #: ../view/error/404.phtml:22
 msgid "We cannot determine at this time why a 404 was generated."
-msgstr "Nous ne pouvons pas déterminer pour le moment pourquoi une 404 a été générée."
+msgstr ""
+"Nous ne pouvons pas déterminer pour le moment pourquoi une 404 a été générée."
 
 #: ../view/error/404.phtml:34
 msgid "Controller"
@@ -58,39 +60,30 @@ msgstr "Contrôleur"
 msgid "resolves to %s"
 msgstr "résout en %s"
 
-#: ../view/error/404.phtml:53
-#: ../view/error/index.phtml:8
+#: ../view/error/404.phtml:53 ../view/error/index.phtml:8
 msgid "Additional information"
 msgstr "Informations complémentaires"
 
-#: ../view/error/404.phtml:56
-#: ../view/error/404.phtml:80
-#: ../view/error/index.phtml:11
-#: ../view/error/index.phtml:35
+#: ../view/error/404.phtml:56 ../view/error/404.phtml:80
+#: ../view/error/index.phtml:11 ../view/error/index.phtml:35
 msgid "File"
 msgstr "Fichier"
 
-#: ../view/error/404.phtml:60
-#: ../view/error/404.phtml:84
-#: ../view/error/index.phtml:15
-#: ../view/error/index.phtml:39
+#: ../view/error/404.phtml:60 ../view/error/404.phtml:84
+#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
 msgid "Message"
 msgstr "Message"
 
-#: ../view/error/404.phtml:64
-#: ../view/error/404.phtml:88
-#: ../view/error/index.phtml:19
-#: ../view/error/index.phtml:43
+#: ../view/error/404.phtml:64 ../view/error/404.phtml:88
+#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
 msgid "Stack trace"
 msgstr "Pile d'exécution"
 
-#: ../view/error/404.phtml:74
-#: ../view/error/index.phtml:29
+#: ../view/error/404.phtml:74 ../view/error/index.phtml:29
 msgid "Previous exceptions"
 msgstr "Exceptions précédentes"
 
-#: ../view/error/404.phtml:103
-#: ../view/error/index.phtml:58
+#: ../view/error/404.phtml:103 ../view/error/index.phtml:58
 msgid "No Exception available"
 msgstr "Aucune exception disponible"
 
@@ -158,19 +151,16 @@ msgstr "Se déconnecter"
 #~ msgstr "Statistiques Puppet du jour"
 
 #~ msgid "skip"
-
 #~ msgid_plural "skips"
 #~ msgstr[0] "skip"
 #~ msgstr[1] "skips"
 
 #~ msgid "failure"
-
 #~ msgid_plural "failures"
 #~ msgstr[0] "échec"
 #~ msgstr[1] "échecs"
 
 #~ msgid "%s server for %s OS"
-
 #~ msgid_plural "Distribution of the %s servers by %s OS"
 #~ msgstr[0] "%s serveur pour %s OS"
 #~ msgstr[1] "Répartition des %s serveurs pour les %s OS"
@@ -182,19 +172,16 @@ msgstr "Se déconnecter"
 #~ msgstr "Informations Puppet"
 
 #~ msgid "Unchanged server"
-
 #~ msgid_plural "Unchanged servers"
 #~ msgstr[0] "Serveur OK"
 #~ msgstr[1] "Serveurs OK"
 
 #~ msgid "Changed server"
-
 #~ msgid_plural "Changed servers"
 #~ msgstr[0] "Serveur corrigé"
 #~ msgstr[1] "Serveurs corrigés"
 
 #~ msgid "Failed server"
-
 #~ msgid_plural "Failed servers"
 #~ msgstr[0] "Serveur en échec"
 #~ msgstr[1] "Serveurs en échec"
