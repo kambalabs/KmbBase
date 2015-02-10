@@ -80,6 +80,13 @@ ul.flash  {
     list-style-type: none;
 }
 
+.tab-pane {
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
 .tab-pane > blockquote {
     margin-top: 16px;
 }
