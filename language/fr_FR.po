@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-09 16:56+0100\n"
-"PO-Revision-Date: 2015-02-09 16:56+0100\n"
+"POT-Creation-Date: 2015-03-04 11:24+0100\n"
+"PO-Revision-Date: 2015-03-04 11:24+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: fr_FR\n"
@@ -91,21 +91,21 @@ msgstr "Aucune exception disponible"
 msgid "An error occurred"
 msgstr "Une erreur est survenue"
 
-#: ../view/layout/layout.phtml:50
+#: ../view/layout/layout.phtml:54
+msgid "Refresh cache"
+msgstr "Rafraîchir le cache"
+
+#: ../view/layout/layout.phtml:55
+msgid "Signout"
+msgstr "Se déconnecter"
+
+#: ../view/layout/layout.phtml:61
 msgid "Select an environment"
 msgstr "Choisir un environnement"
 
-#: ../view/layout/layout.phtml:52
+#: ../view/layout/layout.phtml:63
 msgid "All"
 msgstr "Tous"
-
-#: ../view/layout/layout.phtml:65
-msgid "Clear cache"
-msgstr "Vider le cache"
-
-#: ../view/layout/layout.phtml:66
-msgid "Signout"
-msgstr "Se déconnecter"
 
 #~ msgid "Dashboard"
 #~ msgstr "Dashboard"
