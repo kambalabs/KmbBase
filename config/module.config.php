@@ -33,6 +33,7 @@ return [
         ],
         'factories' => [
             'translate' => 'KmbBase\Controller\Plugin\TranslateFactory',
+            'widget' => 'KmbBase\Controller\Plugin\WidgetFactory',
         ],
     ],
     'navigation' => [
