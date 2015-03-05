@@ -136,7 +136,10 @@ class Widget extends AbstractPlugin
             return [];
         }
         return array_map(function ($service) {
-            return $this->getServiceLocator()->get($service);
+            /** @var WidgetActionInterface $action */
+            $action = $this->getServiceLocator()->get($service);
+            $action->setController($this->getController());
+            return $action;
         }, $this->config[$widgetName]['actions']);
     }
 }

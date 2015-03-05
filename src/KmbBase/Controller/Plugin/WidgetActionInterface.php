@@ -29,4 +29,19 @@ interface WidgetActionInterface
      * @return WidgetActionInterface
      */
     public function run(ViewModel $model = null);
+
+    /**
+     * Set Controller.
+     *
+     * @param \Zend\Stdlib\DispatchableInterface $controller
+     * @return AbstractWidgetAction
+     */
+    public function setController($controller);
+
+    /**
+     * Get Controller.
+     *
+     * @return \Zend\Stdlib\DispatchableInterface
+     */
+    public function getController();
 }

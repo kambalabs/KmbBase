@@ -20,10 +20,6 @@
  */
 namespace KmbBase\Controller\Plugin;
 
-use KmbBaseTest\Controller\Plugin\bool;
-use KmbBaseTest\Controller\Plugin\mixed;
-use KmbBaseTest\Controller\Plugin\null;
-use KmbBaseTest\Controller\Plugin\string;
 use Zend\Mvc\Controller\PluginManager;
 use Zend\Stdlib\DispatchableInterface;
 
