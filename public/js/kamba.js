@@ -29,7 +29,7 @@ $(window).load(function () {
             $.gritter.add({
                 title: title,
                 text: $(this).html(),
-                sticky: true,
+                sticky: $(this).hasClass('gritter-warning') || $(this).hasClass('gritter-danger'),
                 class_name: $(this).attr('class')
             });
         });
