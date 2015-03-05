@@ -132,7 +132,7 @@ class Widget extends AbstractPlugin
      */
     public function getActions($widgetName)
     {
-        if (!array_key_exists($widgetName, $this->config)) {
+        if (!isset($this->config[$widgetName]['actions'])) {
             return [];
         }
         return array_map(function ($service) {
