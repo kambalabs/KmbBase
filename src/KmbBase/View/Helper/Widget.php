@@ -27,15 +27,29 @@ class Widget extends AbstractHelper
     /** @var  array */
     protected $config;
 
+    /** @var  string */
+    protected $widgetName;
+
     /**
      * @param string $name
+     * @return Widget
+     */
+    public function __invoke($name)
+    {
+        if ($name !== null) {
+            $this->setWidgetName($name);
+        }
+        return $this;
+    }
+
+    /**
      * @param array  $model
      * @return string
      */
-    public function render($name, $model = [])
+    public function render($model = [])
     {
         $content = '';
-        foreach ($this->getPartials($name) as $partial) {
+        foreach ($this->getPartials() as $partial) {
             $content .= $this->view->partial($partial, $model);
         }
         return $content;
@@ -64,15 +78,36 @@ class Widget extends AbstractHelper
     }
 
     /**
-     * Get specified config key.
+     * Set WidgetName.
      *
-     * @param string $name
+     * @param string $widgetName
+     * @return Widget
+     */
+    public function setWidgetName($widgetName)
+    {
+        $this->widgetName = $widgetName;
+        return $this;
+    }
+
+    /**
+     * Get WidgetName.
+     *
+     * @return string
+     */
+    public function getWidgetName()
+    {
+        return $this->widgetName;
+    }
+
+    /**
+     * Get partials of current widget name.
+     *
      * @return array
      */
-    public function getPartials($name)
+    public function getPartials()
     {
-        if (isset($this->config[$name]['partials'])) {
-            return $this->config[$name]['partials'];
+        if (isset($this->config[$this->widgetName]['partials'])) {
+            return $this->config[$this->widgetName]['partials'];
         }
         return [];
     }

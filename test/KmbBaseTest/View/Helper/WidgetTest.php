@@ -25,7 +25,7 @@ class WidgetTest extends \PHPUnit_Framework_TestCase
             ],
         ]);
 
-        $content = $widget->render('test');
+        $content = $widget('test')->render();
 
         $this->assertEquals('partial test1 partial test2 ', $content);
     }
