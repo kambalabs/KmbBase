@@ -159,4 +159,10 @@ $(window).load(function () {
         $('.confirm-param1').html($(e.relatedTarget).attr('data-confirm-param1'));
         $('.confirm-param2').html($(e.relatedTarget).attr('data-confirm-param2'));
     });
+
+    // Javascript to enable link to tab
+    var url = document.location.toString();
+    if (url.match('#')) {
+        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    }
 });
