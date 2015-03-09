@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kamba\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-04 11:24+0100\n"
-"PO-Revision-Date: 2015-03-04 11:24+0100\n"
+"POT-Creation-Date: 2015-03-09 15:39+0100\n"
+"PO-Revision-Date: 2015-03-09 15:39+0100\n"
 "Last-Translator: Emmanuel Bouton <goten4@gmail.com>\n"
 "Language-Team: Kamba Contibutors <devteam@kamba.org>\n"
 "Language: fr_FR\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 "X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../config/module.config.php:45
+msgid "Home"
+msgstr "Accueil"
 
 #: ../src/KmbBase/View/Helper/PrintBoolean.php:40
 msgid "yes"
@@ -194,9 +198,6 @@ msgstr "Tous"
 
 #~ msgid "Skeleton Application"
 #~ msgstr "Skeleton Application"
-
-#~ msgid "Home"
-#~ msgstr "Accueil"
 
 #~ msgid "All rights reserved."
 #~ msgstr "Tous droits réservés."

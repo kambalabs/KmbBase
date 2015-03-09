@@ -72,6 +72,10 @@
             </div>
         </div>
         <div class="container tab-content">
+            <div>
+                <?php $breadcrumb = $this->navigation()->breadcrumbs('breadcrumb')->setSeparator('<span class="glyphicon glyphicon-chevron-right btn-xs lightgrey"></span>')->render(); ?>
+                <?php echo $breadcrumb ? $breadcrumb . '<hr />' : ''; ?>
+            </div>
 <?php echo $this->content; ?>
         </div> <!-- /container -->
         <!-- Scripts -->

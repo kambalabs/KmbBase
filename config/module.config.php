@@ -1,4 +1,6 @@
 <?php
+// Awfull hack to tell to poedit to translate navigation labels
+$translate = function ($message) { return $message; };
 return [
     'router' => [
         'routes' => [
@@ -38,6 +40,15 @@ return [
     ],
     'navigation' => [
         'navbar' => [],
+        'breadcrumb' => [
+            'home' => [
+                'label' => $translate('Home'),
+                'route' => 'index',
+                'useRouteMatch' => true,
+                'pages' => [
+                ],
+            ],
+        ],
     ],
     'view_manager' => [
         'display_not_found_reason' => true,
