@@ -20,15 +20,26 @@
  */
 namespace KmbBase\View\Helper;
 
+use KmbBase\Widget\DefaultWidgetAction;
+use KmbBase\Widget\WidgetActionInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Stdlib\DispatchableInterface;
 use Zend\View\Helper\AbstractHelper;
+use Zend\View\Model\ViewModel;
 
 class Widget extends AbstractHelper
 {
     /** @var  array */
     protected $config;
 
-    /** @var  string */
-    protected $widgetName;
+    /** @var  WidgetActionInterface[] */
+    protected $actions = [];
+
+    /** @var  ServiceLocatorInterface */
+    protected $serviceLocator;
+
+    /** @var  DispatchableInterface */
+    protected $controller;
 
     /**
      * @param string $name
@@ -36,23 +47,52 @@ class Widget extends AbstractHelper
      */
     public function __invoke($name)
     {
-        if ($name !== null) {
-            $this->setWidgetName($name);
+        $this->actions = [];
+        foreach ($this->getWidgetConfigs($name) as $config) {
+            $action = isset($config['action']) ? $this->serviceLocator->get($config['action']) : new DefaultWidgetAction();
+            $action->setTemplate($config['template']);
+            $action->setServiceLocator($this->serviceLocator);
+            $action->setController($this->controller);
+            $this->actions[] = $action;
         }
         return $this;
     }
 
     /**
-     * @param array  $model
+     * @param array $model
      * @return string
      */
     public function render($model = [])
     {
         $content = '';
-        foreach ($this->getPartials() as $partial) {
-            $content .= $this->view->partial($partial, $model);
+        foreach ($this->actions as $action) {
+            $viewModel = $this->createModel($action->getTemplate(), $model);
+            $content .= $this->view->partial($action->call($viewModel));
         }
         return $content;
+    }
+
+    /**
+     * @param string $name
+     * @return array
+     */
+    public function getWidgetConfigs($name)
+    {
+        return isset($this->config[$name]) ? $this->config[$name] : [];
+    }
+
+    /**
+     * @param string $template
+     * @param array $model
+     * @return ViewModel
+     */
+    protected function createModel($template, $model)
+    {
+        $viewModel = new ViewModel($model);
+        foreach ($this->view->viewModel()->getCurrent()->getVariables() as $key => $value) {
+            $viewModel->setVariable($key, $viewModel->getVariable($key, $value));
+        }
+        return $viewModel->setTemplate($template);
     }
 
     /**
@@ -78,37 +118,46 @@ class Widget extends AbstractHelper
     }
 
     /**
-     * Set WidgetName.
+     * Set ServiceLocator.
      *
-     * @param string $widgetName
+     * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
      * @return Widget
      */
-    public function setWidgetName($widgetName)
+    public function setServiceLocator($serviceLocator)
     {
-        $this->widgetName = $widgetName;
+        $this->serviceLocator = $serviceLocator;
         return $this;
     }
 
     /**
-     * Get WidgetName.
+     * Get ServiceLocator.
      *
-     * @return string
+     * @return \Zend\ServiceManager\ServiceLocatorInterface
      */
-    public function getWidgetName()
+    public function getServiceLocator()
     {
-        return $this->widgetName;
+        return $this->serviceLocator;
     }
 
     /**
-     * Get partials of current widget name.
+     * Set Controller.
      *
-     * @return array
+     * @param \Zend\Stdlib\DispatchableInterface $controller
+     * @return Widget
      */
-    public function getPartials()
+    public function setController($controller)
     {
-        if (isset($this->config[$this->widgetName]['partials'])) {
-            return $this->config[$this->widgetName]['partials'];
-        }
-        return [];
+        $this->controller = $controller;
+        return $this;
+    }
+
+    /**
+     * Get Controller.
+     *
+     * @return \Zend\Stdlib\DispatchableInterface
+     */
+    public function getController()
+    {
+        return $this->controller;
     }
 }

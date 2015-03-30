@@ -18,32 +18,18 @@
  * You should have received a copy of the GNU General Public License
  * along with Kamba.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace KmbBase\Controller\Plugin;
+namespace KmbBase\Widget;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\ServiceManager\ServiceManager;
+use Zend\View\Model\ViewModel;
 
-class WidgetFactory implements FactoryInterface
+class DefaultWidgetAction extends AbstractWidgetAction
 {
     /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @param ViewModel $model
+     * @return ViewModel
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function call(ViewModel $model = null)
     {
-        /** @var ServiceManager $serviceManager */
-        $serviceManager = $serviceLocator->getServiceLocator();
-
-        $plugin = new Widget();
-        $plugin->setServiceLocator($serviceManager);
-        $config = $serviceManager->get('Config');
-        if (isset($config['controller_plugin_config']['widget'])) {
-            $plugin->setConfig($config['controller_plugin_config']['widget']);
-        }
-
-        return $plugin;
+        return $model;
     }
 }

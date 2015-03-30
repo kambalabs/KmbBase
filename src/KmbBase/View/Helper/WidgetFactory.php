@@ -22,9 +22,10 @@ class WidgetFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $serviceLocator = $serviceLocator->getServiceLocator();
+        $serviceManager = $serviceLocator->getServiceLocator();
         $helper = new Widget();
-        $config = $serviceLocator->get('Config');
+        $helper->setServiceLocator($serviceManager);
+        $config = $serviceManager->get('Config');
         if (isset($config['view_helper_config']['widget'])) {
             $helper->setConfig($config['view_helper_config']['widget']);
         }

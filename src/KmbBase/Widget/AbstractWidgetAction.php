@@ -18,9 +18,10 @@
  * You should have received a copy of the GNU General Public License
  * along with Kamba.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace KmbBase\Controller\Plugin;
+namespace KmbBase\Widget;
 
 use Zend\Mvc\Controller\PluginManager;
+use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\DispatchableInterface;
 
 /**
@@ -45,13 +46,17 @@ use Zend\Stdlib\DispatchableInterface;
  */
 abstract class AbstractWidgetAction implements WidgetActionInterface
 {
+    /** @var  ServiceLocatorInterface */
+    protected $serviceLocator;
+
     /** @var  DispatchableInterface */
     protected $controller;
 
-    /**
-     * @var PluginManager
-     */
+    /** @var PluginManager */
     protected $plugins;
+
+    /** @var  string */
+    protected $template;
 
     /**
      * Get plugin manager
@@ -63,8 +68,6 @@ abstract class AbstractWidgetAction implements WidgetActionInterface
         if (!$this->plugins) {
             $this->setPluginManager(new PluginManager());
         }
-
-        $this->plugins->setController($this->controller);
         return $this->plugins;
     }
 
@@ -115,6 +118,28 @@ abstract class AbstractWidgetAction implements WidgetActionInterface
     }
 
     /**
+     * Set ServiceLocator.
+     *
+     * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
+     * @return AbstractWidgetAction
+     */
+    public function setServiceLocator($serviceLocator)
+    {
+        $this->serviceLocator = $serviceLocator;
+        return $this;
+    }
+
+    /**
+     * Get ServiceLocator.
+     *
+     * @return \Zend\ServiceManager\ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->serviceLocator;
+    }
+
+    /**
      * Set Controller.
      *
      * @param \Zend\Stdlib\DispatchableInterface $controller
@@ -134,5 +159,27 @@ abstract class AbstractWidgetAction implements WidgetActionInterface
     public function getController()
     {
         return $this->controller;
+    }
+
+    /**
+     * Set Template.
+     *
+     * @param string $template
+     * @return AbstractWidgetAction
+     */
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+        return $this;
+    }
+
+    /**
+     * Get Template.
+     *
+     * @return string
+     */
+    public function getTemplate()
+    {
+        return $this->template;
     }
 }

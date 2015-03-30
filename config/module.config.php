@@ -15,10 +15,14 @@ return [
     'service_manager' => [
         'invokables' => [
             'DateTimeFactory' => 'KmbBase\DateTimeFactory',
+            'KmbBase\Listener\WidgetViewHelperListener' => 'KmbBase\Listener\WidgetViewHelperListener',
         ],
         'abstract_factories' => [
             'KmbBase\Factory\NavigationAbstractFactory',
         ],
+    ],
+    'listeners' => [
+        'KmbBase\Listener\WidgetViewHelperListener',
     ],
     'translator' => [
         'translation_file_patterns' => [
@@ -35,7 +39,6 @@ return [
         ],
         'factories' => [
             'translate' => 'KmbBase\Controller\Plugin\TranslateFactory',
-            'widget' => 'KmbBase\Controller\Plugin\WidgetFactory',
         ],
     ],
     'navigation' => [

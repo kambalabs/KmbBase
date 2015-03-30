@@ -13,12 +13,14 @@ class WidgetFactoryTest extends \PHPUnit_Framework_TestCase
         $helper = Bootstrap::getServiceManager()->get('ViewHelperManager')->get('widget');
 
         $this->assertInstanceOf('KmbBase\View\Helper\Widget', $helper);
+        $this->assertInstanceOf('Zend\ServiceManager\ServiceManager', $helper->getServiceLocator());
         $this->assertEquals([
             'fake' => [
-                'partials' => [
-                    'fake.phtml',
-                ]
-            ]
+                [
+                    'action' => 'Fake\Widget\FakeWidgetAction',
+                    'template' => 'fake.phtml',
+                ],
+            ],
         ], $helper->getConfig());
     }
 }

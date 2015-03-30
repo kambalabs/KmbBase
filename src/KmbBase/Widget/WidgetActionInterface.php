@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Kamba.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace KmbBase\Controller\Plugin;
+namespace KmbBase\Widget;
 
 use Zend\View\Model\ViewModel;
 
@@ -26,22 +26,30 @@ interface WidgetActionInterface
 {
     /**
      * @param ViewModel $model
-     * @return WidgetActionInterface
+     * @return ViewModel
      */
-    public function run(ViewModel $model = null);
+    public function call(ViewModel $model = null);
 
     /**
-     * Set Controller.
+     * Set ServiceLocator.
      *
-     * @param \Zend\Stdlib\DispatchableInterface $controller
+     * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
      * @return AbstractWidgetAction
      */
-    public function setController($controller);
+    public function setServiceLocator($serviceLocator);
 
     /**
-     * Get Controller.
+     * Set Template.
      *
-     * @return \Zend\Stdlib\DispatchableInterface
+     * @param string $template
+     * @return WidgetActionInterface
      */
-    public function getController();
+    public function setTemplate($template);
+
+    /**
+     * Get Template.
+     *
+     * @return string
+     */
+    public function getTemplate();
 }
