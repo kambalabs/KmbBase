@@ -50,11 +50,14 @@ class WidgetViewHelperListener extends AbstractListenerAggregate
                 $serviceManager = $event->getTarget()->getServiceManager();
                 /** @var ControllerManager $controllerManager */
                 $controllerManager = $serviceManager->get('ControllerManager');
-                $controller = $controllerManager->get($event->getRouteMatch()->getParam('controller'));
-                $viewHelperManager = $serviceManager->get('ViewHelperManager');
-                /** @var Widget $widgetViewHelper */
-                $widgetViewHelper = $viewHelperManager->get('widget');
-                $widgetViewHelper->setController($controller);
+                $routeMatch = $event->getRouteMatch();
+                if ($routeMatch) {
+                    $controller = $controllerManager->get($routeMatch->getParam('controller'));
+                    $viewHelperManager = $serviceManager->get('ViewHelperManager');
+                    /** @var Widget $widgetViewHelper */
+                    $widgetViewHelper = $viewHelperManager->get('widget');
+                    $widgetViewHelper->setController($controller);
+                }
             },
             $this->priority
         );
