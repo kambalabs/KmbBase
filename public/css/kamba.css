@@ -696,3 +696,11 @@ form#set-environment-form div.input-group-btn {
 .panel-heading[data-toggle="collapse"].collapsed > span:last-child:after {
     content:"\e080";
 }
+
+.btn-toggle .btn-default {
+    color: white;
+}
+
+.btn-toggle .btn-default:hover {
+    color: #e6e6e6;
+}
