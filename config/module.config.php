@@ -39,6 +39,7 @@ return [
         ],
         'factories' => [
             'translate' => 'KmbBase\Controller\Plugin\TranslateFactory',
+            'translatePlural' => 'KmbBase\Controller\Plugin\TranslatePluralFactory',
         ],
     ],
     'navigation' => [

@@ -6,6 +6,10 @@ button, input, optgroup, select, textarea {
     font-weight: normal;
 }
 
+code {
+    white-space: nowrap;
+}
+
 .grab {
     cursor: grab;
     cursor: -moz-grab;
